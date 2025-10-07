@@ -6,6 +6,8 @@
 *.secret
 *.pem
 credentials.json
+resume_extractor_clean/
+
 
 # === Python ===
 __pycache__/
