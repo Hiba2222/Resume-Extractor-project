@@ -4,6 +4,7 @@ Extract structured information from CVs and resumes with AI precision.
 
 ![CV Extractor Interface](static/interface1.png)
 
+
 ## 🔍 Overview
 
 This project extracts structured information from CVs/resumes using PDF processing techniques and LLM-powered text analysis. It features a comprehensive evaluation system to compare the performance of different language models.
@@ -36,7 +37,7 @@ docker run -p 5000:5000 -v $(pwd)/data:/app/data -v $(pwd)/evaluation_reports:/a
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/cv_extractor_project.git
+git clone https://github.com/Hiba/cv_extractor_project.git
 cd cv_extractor_project
 ```
 
@@ -133,13 +134,35 @@ Our evaluation system compares model performance across different CV fields:
 
 ## 💡 Usage Instructions
 
+### Using Launcher Scripts (Recommended)
+
+The project includes launcher scripts for easy startup:
+
+**Windows Users:**
+```bash
+# Double-click run.bat or run from PowerShell/Command Prompt
+.\run.bat
+```
+
+**Linux/Mac Users:**
+```bash
+# Make the script executable first
+chmod +x run.sh
+# Run the script
+./run.sh
+```
+
+Both scripts provide an interactive menu to:
+1. Start the application with Docker (recommended)
+2. Start with Python directly
+3. Stop running Docker containers
+4. Exit
+
 ### Web Interface
 
-Access the web interface at `http://localhost:5000` after starting the application.
-
-1. Upload your CV (PDF format)
-2. Select models to use for extraction
-3. Click "Process CV"
+1. Access the web interface at http://localhost:5000
+2. Upload a CV/resume in PDF format
+3. Select an AI model for processing
 4. View structured results and download as JSON
 
 ### API Usage
@@ -217,11 +240,12 @@ cv_extractor_project/
 ├── run_evaluation.py         # Evaluation pipeline
 ├── pipeline.py               # Processing pipeline
 ├── run_web.py                # Web application launcher
+├── run.sh                    # Launcher script for Linux/Mac
+├── run.bat                   # Launcher script for Windows
 ├── EVALUATION_REPORT.md      # Detailed evaluation findings
 ├── Dockerfile                # Container definition
 ├── docker-compose.yml        # Docker orchestration
 ├── requirements.txt          # Python dependencies
-├── .env                      # Environment variables
 ├── .env.example              # Example environment variables
 └── README.md                 # Project documentation
 ```
@@ -283,34 +307,3 @@ Environment variables can be set in the `.env` file or passed directly to the co
 ```bash
 docker run -p 5000:5000 -v $(pwd)/data:/app/data -v $(pwd)/evaluation_reports:/app/evaluation_reports -e "GEMINI_API_KEY=your_key_here" cv-extractor
 ```
-
-## 🔧 Troubleshooting
-
-### Common Issues
-
-1. **PDF Processing Failures**
-   - Ensure Poppler is correctly installed and its path is set in `.env`
-   - For image-based PDFs, verify your Gemini API key is valid
-   - Try using the alternate PDF processing method by setting `OCR_ENABLED=false`
-
-2. **Model Access Problems**
-   - If Ollama is not working, ensure OpenRouter API key is configured
-   - Check network connectivity to API endpoints
-   - Verify model names match those available in Ollama or OpenRouter
-
-3. **Missing Directories**
-   - All required directories are created automatically when running the application
-   - Manually create any missing directories if errors occur
-   - Docker volumes should be properly mounted to persist data
-
-4. **Docker Container Issues**
-   - Ensure ports are not already in use: `lsof -i :5000` or `netstat -ano | findstr :5000`
-   - Check container logs: `docker-compose logs -f`
-   - Verify environment variables are properly passed to the container
-
-### Getting Help
-
-If you encounter issues not addressed above:
-1. Check the logs in the console or container output
-2. Ensure all dependencies are correctly installed
-3. Open an issue in the project repository with detailed error information 
