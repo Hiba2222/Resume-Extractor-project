@@ -4,7 +4,7 @@ import re
 import shutil
 import random
 from pathlib import Path
-from evaluation import CVEvaluator, main
+from evaluation.evaluation import CVEvaluator, main
 
 def prepare_ground_truth():
     """Prepare a consolidated ground truth file from individual files"""
