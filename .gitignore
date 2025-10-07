@@ -1,0 +1,56 @@
+# === Environment & Secrets ===
+.env
+.env.local
+.env.*.local
+*.key
+*.secret
+*.pem
+credentials.json
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.env/
+
+# === Data & Outputs ===
+/raw/
+outputs/
+extracted_data/
+results/
+*.csv
+*.xlsx
+*.json
+*.pdf
+*.txt
+
+# === Notebooks ===
+.ipynb_checkpoints/
+
+# === Logs & Caches ===
+logs/
+*.log
+.cache/
+__cache__/
+
+# === IDEs ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+
+# === Temporary / Misc ===
+*.tmp
+*.bak
+*.old

@@ -169,28 +169,6 @@ CV Text:
             }
         }
         
-        for attempt in range(self.CONNECTION_RETRIES + 1):
-            try:
-                print(f"🔄 API request attempt {attempt+1}...")
-                response = requests.post(
-                    self.OLLAMA_API, 
-                    json=payload, 
-                    timeout=self.REQUEST_TIMEOUT
-                )
-                response.raise_for_status()
-                print("✅ Ollama API request successful")
-                return response.json().get("response", "")
-            except requests.exceptions.RequestException as e:
-                print(f"⚠️ Request error (attempt {attempt+1}/{self.CONNECTION_RETRIES+1}): {str(e)}")
-                if attempt < self.CONNECTION_RETRIES:
-                    backoff_time = 2 ** attempt
-                    print(f"⏳ Waiting {backoff_time} seconds before retry...")
-                    time.sleep(backoff_time)
-                    continue
-                
-                print("❌ All Ollama attempts failed")
-                return None
-    
     def call_openrouter_api(self, prompt):
         """Call OpenRouter API with fallback models"""
         if not self.OPENROUTER_API_KEY:
@@ -259,6 +237,7 @@ CV Text:
         print(f"❌ All OpenRouter models failed")
         return None
     
+
     def extract_json_from_response(self, response: str) -> Dict[str, Any]:
         """Extract and parse JSON from the response"""
         if not response:
@@ -318,12 +297,6 @@ CV Text:
                 
                 parsed_result = normalized
                 
-                # Normalize date formats in experience section
-                if 'Experience' in parsed_result and parsed_result['Experience']:
-                    for exp in parsed_result['Experience']:
-                        if isinstance(exp, dict) and 'duration' in exp and exp['duration']:
-                            exp['duration'] = self.normalize_dates(exp['duration'])
-                
                 return parsed_result
             else:
                 return {"error": "Invalid JSON structure"}
@@ -341,68 +314,9 @@ CV Text:
                 "raw_response": response[:100] + "..." if len(response) > 100 else response
             }
     
-    def normalize_dates(self, text: str) -> str:
-        """
-        Normalize date ranges by replacing various dash/hyphen characters with standard hyphens.
-        This helps with displaying dates properly in the UI.
-        """
-        if not text:
-            return text
-        
-        # Replace various dash characters with standard hyphens
-        replacements = [
-            ('–', '-'),  # en dash
-            ('—', '-'),  # em dash
-            ('−', '-'),  # minus sign
-            ('‐', '-'),  # hyphen
-            ('‑', '-'),  # non-breaking hyphen
-            ('⁃', '-'),  # hyphen bullet
-            ('⁻', '-'),  # superscript minus
-            ('₋', '-'),  # subscript minus
-        ]
-        
-        result = text
-        for old, new in replacements:
-            result = result.replace(old, new)
-        
-        return result
-    
-    def smart_truncate(self, cv_text: str, max_length: int = 6000) -> str:
-        """Truncate CV text while preserving important sections"""
-        if len(cv_text) <= max_length:
-            return cv_text
-            
-        # Find section headers
-        sections = ["education", "experience", "skills", "work history"]
-        section_positions = []
-        
-        for section in sections:
-            for match in re.finditer(rf"\b{section}\b", cv_text, re.IGNORECASE):
-                section_positions.append(match.start())
-        
-        section_positions.sort()
-        
-        if not section_positions:
-            # Simple truncation if no sections found
-            return cv_text[:max_length]
-        
-        # Keep beginning, important sections, and end
-        start_text = cv_text[:max_length//3]
-        
-        # Find middle section
-        mid_point = len(cv_text) // 2
-        closest_section = min(section_positions, key=lambda x: abs(x - mid_point))
-        middle_text = cv_text[max(0, closest_section - max_length//3):closest_section + max_length//3]
-        
-        # End section
-        end_text = cv_text[-max_length//3:]
-        
-        return f"{start_text}\n[...]\n{middle_text}\n[...]\n{end_text}"
-    
     def extract_from_cv(self, cv_text):
         """Extract structured information from CV text with timeout support"""
         # Truncate text if needed
-        cv_text = self.smart_truncate(cv_text)
         
         try:
             # Format prompt with escaped curly braces in cv_text to prevent format errors
@@ -510,7 +424,7 @@ CV Text:
         try:
             with open(input_path, 'r', encoding='utf-8') as f:
                 cv_text = f.read().strip()
-                
+            
             if not cv_text:
                 print("❌ Input file is empty")
                 return False
