@@ -72,7 +72,11 @@ cp .env.example .env
 5. **Start the application**
 
 ```bash
-python scripts/app.py
+# New recommended way
+python bin/run_web.py
+
+# Or use the legacy entry point (redirects to bin/)
+python run_web.py
 ```
 
 ## 🖥️ System Requirements
@@ -180,16 +184,20 @@ curl -X POST -F "pdf_file=@/path/to/your/cv.pdf" -F "models=llama3" -F "confiden
 
 ### Command-line Processing
 
-Process all PDFs in the input directory:
+Run the complete pipeline:
 
 ```bash
-python scripts/pdf_extractor.py --input_dir data/input --output_dir data/output
+python bin/pipeline.py --input data/input --output data/output --results data/results --models llama3,mistral,phi
 ```
 
-Process extracted text with LLMs:
+Or use individual modules:
 
 ```bash
-python scripts/llm_processor.py --input_dir data/output --output_dir data/results --models llama3,mistral
+# Extract text from PDFs
+python -m cv_extractor.pdf.extractor
+
+# Process text with LLMs
+python -m cv_extractor.llm.processor --input input.txt --output output.json
 ```
 
 ## 🔍 Evaluation System
@@ -199,7 +207,7 @@ python scripts/llm_processor.py --input_dir data/output --output_dir data/result
 To evaluate model performance:
 
 ```bash
-python run_evaluation.py
+python bin/run_evaluation.py
 ```
 
 This script will:
@@ -222,31 +230,46 @@ This script will:
 ## 📁 Directory Structure
 
 ```
-cv_extractor_project/
+Resume_extractor_project/
+├── cv_extractor/             # Main Python package
+│   ├── __init__.py           # Package initialization
+│   ├── config.py             # Centralized configuration
+│   ├── pdf/                  # PDF processing module
+│   │   ├── __init__.py
+│   │   └── extractor.py      # PDF text extraction
+│   ├── llm/                  # LLM processing module
+│   │   ├── __init__.py
+│   │   └── processor.py      # LLM integration
+│   ├── web/                  # Web interface module
+│   │   ├── __init__.py
+│   │   └── app.py            # Flask web application
+│   └── evaluation/           # Evaluation module
+│       ├── __init__.py
+│       ├── core.py           # Evaluation framework
+│       └── runner.py         # Evaluation pipeline
+├── bin/                      # Entry point scripts
+│   ├── run_web.py            # Web application launcher
+│   ├── pipeline.py           # Processing pipeline
+│   └── run_evaluation.py    # Evaluation runner
 ├── data/                     # Data directories
 │   ├── input/                # CV PDFs to process
 │   ├── output/               # Extracted text files
-│   ├── output1/              # Additional output files
+│   ├── results/              # Structured JSON results
+│   ├── uploads/              # Web upload temporary storage
 │   ├── ground_truth/         # Manual annotations for evaluation
 │   └── evaluation/           # Processed evaluation data
 ├── evaluation_reports/       # Generated evaluation visualizations
-├── scripts/                  # Core scripts
-│   ├── app.py                # Flask web application
-│   ├── pdf_extractor.py      # PDF text extraction
-│   └── llm_processor.py      # LLM integration
 ├── templates/                # Flask HTML templates
 ├── static/                   # Static CSS and JS files
-├── evaluation.py             # Evaluation framework
-├── run_evaluation.py         # Evaluation pipeline
-├── pipeline.py               # Processing pipeline
-├── run_web.py                # Web application launcher
+├── pipeline.py               # Legacy entry point (redirects to bin/)
+├── run_web.py                # Legacy entry point (redirects to bin/)
 ├── run.sh                    # Launcher script for Linux/Mac
 ├── run.bat                   # Launcher script for Windows
-├── EVALUATION_REPORT.md      # Detailed evaluation findings
 ├── Dockerfile                # Container definition
 ├── docker-compose.yml        # Docker orchestration
 ├── requirements.txt          # Python dependencies
 ├── .env.example              # Example environment variables
+├── .gitignore                # Git ignore rules
 └── README.md                 # Project documentation
 ```
 
