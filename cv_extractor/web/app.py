@@ -47,25 +47,38 @@ def allowed_file(filename):
 
 
 @app.route('/')
-def index():
+def home():
+    """Home page with overview and features"""
+    return render_template('home.html')
+
+
+@app.route('/upload')
+def upload_page():
+    """Upload page for CV processing"""
     return render_template('index.html')
 
 
-@app.route('/upload', methods=['POST'])
+@app.route('/about')
+def about():
+    """About page with project information"""
+    return render_template('about.html')
+
+
+@app.route('/process', methods=['POST'])
 def upload_file():
     """Handle CV upload and processing"""
     if 'pdf_file' not in request.files:
-        return redirect(url_for('index'))
+        return redirect(url_for('upload_page'))
     
     file = request.files['pdf_file']
     
     if file.filename == '':
         flash('No selected file')
-        return redirect(url_for('index'))
+        return redirect(url_for('upload_page'))
     
     if not allowed_file(file.filename):
         flash('Only PDF files are allowed')
-        return redirect(url_for('index'))
+        return redirect(url_for('upload_page'))
     
     # Get selected models
     models = request.form.getlist('models')
@@ -124,7 +137,7 @@ def upload_file():
         return redirect(url_for('show_results', session_id=session_id))
     except Exception as e:
         flash(f'Error processing PDF: {str(e)}')
-        return redirect(url_for('index'))
+        return redirect(url_for('upload_page'))
 
 
 def process_pdf(pdf_path, models):
@@ -267,7 +280,7 @@ def show_results(session_id):
     session_file = os.path.join(app.config['RESULTS_FOLDER'], f"{session_id}_session.json")
     
     if not os.path.exists(session_file):
-        return redirect(url_for('index'))
+        return redirect(url_for('upload_page'))
     
     with open(session_file, 'r') as f:
         session_data = json.load(f)
@@ -287,7 +300,7 @@ def serve_pdf(session_id):
     session_file = os.path.join(app.config['RESULTS_FOLDER'], f"{session_id}_session.json")
     
     if not os.path.exists(session_file):
-        return redirect(url_for('index'))
+        return redirect(url_for('upload_page'))
     
     with open(session_file, 'r') as f:
         session_data = json.load(f)
@@ -303,12 +316,12 @@ def download_result(model):
     session_id = request.args.get('session_id')
     
     if not session_id:
-        return redirect(url_for('index'))
+        return redirect(url_for('upload_page'))
     
     session_file = os.path.join(app.config['RESULTS_FOLDER'], f"{session_id}_session.json")
     
     if not os.path.exists(session_file):
-        return redirect(url_for('index'))
+        return redirect(url_for('upload_page'))
     
     with open(session_file, 'r') as f:
         session_data = json.load(f)
@@ -316,7 +329,7 @@ def download_result(model):
     result_file = session_data['result_files'].get(model)
     
     if not result_file or not os.path.exists(result_file):
-        return redirect(url_for('index'))
+        return redirect(url_for('upload_page'))
     
     return send_file(result_file, mimetype='application/json', 
                      download_name=f"cv_extraction_{model}.json", as_attachment=True)

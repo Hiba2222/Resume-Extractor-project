@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}About - CV Extractor{% endblock %}
+
+{% block extra_css %}
+<style>
+    .about-hero {
+        background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+        color: white;
+        padding: 4rem 2rem;
+        border-radius: 1rem;
+        margin-bottom: 4rem;
+        text-align: center;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    
+    
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section -->
+    <div class="about-hero">
+        <h1 class="display-3 fw-bold mb-3" style="color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">About CV Extractor</h1>
+        <p class="lead fs-4">Revolutionizing resume processing with artificial intelligence</p>
+    </div>
+
+    <!-- Mission Section -->
+    <section class="mb-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="display-4 fw-bold mb-4" style="color: #2c3e50;">Our Mission</h2>
+                <p class="lead mb-4">
+                    To democratize access to advanced AI-powered resume processing, making it easy for 
+                    businesses and individuals to extract structured data from CVs with unprecedented accuracy.
+                </p>
+                <p class="text-muted">
+                    We believe that hiring processes should be efficient, fair, and data-driven. Our platform 
+                    eliminates the tedious manual work of parsing resumes, allowing HR professionals and 
+                    recruiters to focus on what matters most - finding the right talent.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <i class="fas fa-bullseye fa-10x text-primary opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="mb-5">
+        <div class="text-center mb-5">
+            <h2 class="display-4 fw-bold mb-3" style="color: #2c3e50;">Our Technology</h2>
+            <p class="lead text-muted">Built on cutting-edge AI and machine learning technologies</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-brain fa-3x mb-3" style="color: #805ad5;"></i>
+                        <h4 class="fw-bold" style="color: #805ad5;">Large Language Models</h4>
+                        <p class="text-muted">
+                            Powered by state-of-the-art LLMs including Llama 3, Mistral, and Microsoft Phi 
+                            for accurate text understanding and extraction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-eye fa-3x mb-3" style="color: #319795;"></i>
+                        <h4 class="fw-bold" style="color: #319795;">OCR Technology</h4>
+                        <p class="text-muted">
+                            Advanced optical character recognition using Google's Gemini AI to handle 
+                            both text-based and scanned PDF documents.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-shield-alt fa-3x mb-3" style="color: #dd6b20;"></i>
+                        <h4 class="fw-bold" style="color: #dd6b20;">Security & Privacy</h4>
+                        <p class="text-muted">
+                            Enterprise-grade security with automatic document deletion and no permanent 
+                            data storage to protect user privacy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Values Section -->
+    <section class="mb-5">
+        <div class="text-center mb-5">
+            <h2 class="display-4 fw-bold mb-3" style="color: #2c3e50;">Our Values</h2>
+            <p class="lead text-muted">The principles that guide our development</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="d-flex">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-heart fa-2x me-3" style="color: #e53e3e;"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold" style="color: #e53e3e;">User-Centric Design</h4>
+                        <p class="text-muted">
+                            Every feature is designed with the user in mind, ensuring simplicity, 
+                            efficiency, and accessibility for all skill levels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="d-flex">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-lock fa-2x me-3" style="color: #38a169;"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold" style="color: #38a169;">Privacy First</h4>
+                        <p class="text-muted">
+                            We prioritize user privacy and data security, implementing best practices 
+                            to protect sensitive information throughout the process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="d-flex">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-rocket fa-2x me-3" style="color: #3182ce;"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold" style="color: #3182ce;">Innovation</h4>
+                        <p class="text-muted">
+                            Continuously exploring new AI technologies and methodologies to improve 
+                            accuracy and expand capabilities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="d-flex">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-users fa-2x me-3" style="color: #805ad5;"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold" style="color: #805ad5;">Accessibility</h4>
+                        <p class="text-muted">
+                            Making advanced AI technology accessible to businesses of all sizes, 
+                            from startups to enterprise organizations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <div class="text-center bg-light p-5 rounded-4">
+        <h3 class="fw-bold mb-3">Have Questions?</h3>
+        <p class="text-muted mb-4">
+            We'd love to hear from you. Get in touch with any questions, feedback, or suggestions.
+        </p>
+        <a href="{{ url_for('upload_page') }}" class="btn btn-primary btn-lg me-3">
+            <i class="fas fa-upload me-2"></i> Try CV Extractor
+        </a>
+        <a href="mailto:contact@cvextractor.com" class="btn btn-outline-primary btn-lg">
+            <i class="fas fa-envelope me-2"></i> Contact Us
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -2,18 +2,58 @@
 
 {% block title %}CV Extractor - Upload{% endblock %}
 
+{% block extra_css %}
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+        color: white;
+        padding: 4rem 2rem;
+        border-radius: 1rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .feature-icon {
+        width: 4rem;
+        height: 4rem;
+        background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: white;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+    .floating {
+        animation: float 3s ease-in-out infinite;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="container">
-    <header>
-        <h1 class="text-center my-5">
-            <i class="fas fa-file-invoice me-3"></i>CV Extractor
-        </h1>
-        <p class="lead text-center mb-5">Transform your CV into structured data using advanced AI models</p>
-    </header>
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <div class="floating mb-3">
+            <i class="fas fa-robot fa-4x"></i>
+        </div>
+        <h1 class="display-3 fw-bold mb-3" style="color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">CV Extractor</h1>
+        <p class="lead fs-4">Transform your CV into structured data using advanced AI models</p>
+        <div class="mt-3">
+            <span class="badge bg-light text-dark me-2"><i class="fas fa-brain me-1"></i> AI-Powered</span>
+            <span class="badge bg-light text-dark me-2"><i class="fas fa-bolt me-1"></i> Fast</span>
+            <span class="badge bg-light text-dark"><i class="fas fa-shield-alt me-1"></i> Secure</span>
+        </div>
+    </div>
 
     <!-- Upload Form -->
     <div class="card shadow p-4 mb-5">
-        <form action="/upload" method="POST" enctype="multipart/form-data" class="d-flex flex-column align-items-center">
+        <form action="/process" method="POST" enctype="multipart/form-data" class="d-flex flex-column align-items-center" id="uploadForm">
             <!-- File Upload Section -->
             <div class="file-upload-container w-100" id="dropZone">
                 <i class="fas fa-file-pdf fa-3x mb-3 text-muted"></i>
@@ -52,37 +92,84 @@
             </div>
 
             <button type="submit" id="submitBtn" class="btn btn-primary btn-lg px-5 disabled">
-                <i class="fas fa-magic me-2"></i> Extract Information
+                <span id="btnText">
+                    <i class="fas fa-magic me-2"></i> Extract Information
+                </span>
+                <span id="btnLoading" class="d-none">
+                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                    Processing...
+                </span>
             </button>
         </form>
     </div>
 
     <!-- How It Works Section -->
     <div class="card shadow p-4 mb-5">
-        <h4 class="text-center mb-4"><i class="fas fa-info-circle me-2"></i> How it works</h4>
+        <h4 class="text-center mb-4 fw-bold"><i class="fas fa-lightbulb me-2 text-warning"></i> How it works</h4>
         <div class="row text-center">
             <div class="col-md-4 mb-3">
                 <div class="p-3">
-                    <i class="fas fa-file-upload fa-2x mb-3 text-primary"></i>
-                    <h5>1. Upload</h5>
+                    <div class="feature-icon">
+                        <i class="fas fa-file-upload fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold">1. Upload</h5>
                     <p class="text-muted">Upload your CV in PDF format</p>
                 </div>
             </div>
             <div class="col-md-4 mb-3">
                 <div class="p-3">
-                    <i class="fas fa-cogs fa-2x mb-3 text-primary"></i>
-                    <h5>2. Process</h5>
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold">2. Process</h5>
                     <p class="text-muted">AI extracts structured information</p>
                 </div>
             </div>
             <div class="col-md-4 mb-3">
                 <div class="p-3">
-                    <i class="fas fa-check-circle fa-2x mb-3 text-primary"></i>
-                    <h5>3. Review</h5>
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold">3. Review</h5>
                     <p class="text-muted">View and download extracted data</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Features Section -->
+    <div class="row mb-5">
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-brain text-primary me-2"></i> Multiple AI Models</h5>
+                    <p class="card-text text-muted">Choose from Llama 3, Mistral, or Phi models for best results</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-download text-success me-2"></i> Export to JSON</h5>
+                    <p class="card-text text-muted">Download extracted data in JSON format for easy integration</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+{% block extra_js %}
+<script>
+    // Show loading state on form submit
+    document.getElementById('uploadForm').addEventListener('submit', function() {
+        const btn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoading = document.getElementById('btnLoading');
+        
+        btn.disabled = true;
+        btnText.classList.add('d-none');
+        btnLoading.classList.remove('d-none');
+    });
+</script>
+{% endblock %}
 {% endblock %}
