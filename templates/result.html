@@ -125,7 +125,7 @@
                                         <p><i class="fas fa-university me-2"></i> <strong>Institution:</strong> {{ edu.institution }}</p>
                                         {% if edu.year %}
                                         <p><i class="fas fa-calendar me-2"></i> <strong>Year:</strong> 
-                                        <span>{{ edu.year|string|replace('\u2013', '-')|replace('\u2014', '-')|replace('–', '-')|replace('—', '-') }}</span>
+                                        <span>{{ edu.year|string|replace('\u2013', '-')|replace('\u2014', '-')|replace('-', '-')|replace('—', '-') }}</span>
                                         </p>
                                         {% endif %}
                                         {% if edu.description and edu.description|length > 0 %}

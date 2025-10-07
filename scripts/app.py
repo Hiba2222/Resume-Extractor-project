@@ -219,8 +219,7 @@ def process_pdf(pdf_path, models):
                          "Address": "",
                          "Education": [],
                          "Experience": [],
-                         "Skills": ["PDF extraction failed"],
-                         "Languages": []}}
+                         "Skills": ["PDF extraction failed"]}}
     
     # Print the first few characters of the extracted text for debugging
     print(f"Extracted text sample: {text[:200]}...")
