@@ -12,6 +12,7 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+*.pyc
 *.pdb
 *.egg-info/
 dist/
@@ -54,3 +55,4 @@ Thumbs.db
 *.tmp
 *.bak
 *.old
+
