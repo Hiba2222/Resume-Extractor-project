@@ -2,7 +2,7 @@
 
 Extract structured information from CVs and resumes with AI precision.
 
-![CV Extractor Interface](static/interface1.png)
+![CV Extractor Interface](cv_extractor/web/static/interface1.png)
 
 
 ## 🔍 Overview
@@ -22,14 +22,20 @@ This project extracts structured information from CVs/resumes using PDF processi
 
 ## 🚀 Getting Started
 
-### Docker Setup
+### Docker Setup (Recommended)
 
 ```bash
-# Build the Docker image
+# Build and start with Docker Compose
+docker-compose up -d
+
+# Or build the Docker image manually
 docker build -t cv-extractor .
 
-# Run the container
-docker run -p 5000:5000 -v $(pwd)/data:/app/data -v $(pwd)/evaluation_reports:/app/evaluation_reports -e "GEMINI_API_KEY=your_key_here" cv-extractor
+# Run the container (Windows PowerShell)
+docker run -p 5000:5000 -v ${PWD}/data:/app/data -e "GOOGLE_API_KEY=your_key_here" -e "OPENROUTER_API_KEY=your_key_here" cv-extractor
+
+# Run the container (Linux/Mac)
+docker run -p 5000:5000 -v $(pwd)/data:/app/data -e "GOOGLE_API_KEY=your_key_here" -e "OPENROUTER_API_KEY=your_key_here" cv-extractor
 ```
 
 ### Local Setup
@@ -37,8 +43,8 @@ docker run -p 5000:5000 -v $(pwd)/data:/app/data -v $(pwd)/evaluation_reports:/a
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/Hiba/cv_extractor_project.git
-cd cv_extractor_project
+git clone https://github.com/Hiba2222/cv_extractor_project.git
+cd Resume_extractor_project
 ```
 
 2. **Set up a virtual environment**
@@ -134,7 +140,7 @@ Our evaluation system compares model performance across different CV fields:
 | Mistral | 0.75  | 0.74  | 0.75  | 0.42   | 0.74      | 0.36       | 0.59    |
 | Phi     | 0.38  | 0.74  | 0.75  | 0.38   | 0.74      | 0.38       | 0.52    |
 
-![Model Performance Comparison](evaluation_reports/model_comparison_by_field.png)
+*Note: Run `python bin/run_evaluation.py` to generate performance visualizations and detailed reports.*
 
 ## 💡 Usage Instructions
 
@@ -225,7 +231,8 @@ This script will:
 
 2. **Add model results**:
    - Process CVs with your models
-   - Save results to `data/results/` with model name in the filename
+   - Save results to `data/evaluation/model_results/{model_name}/` directory
+   - Follow the naming convention: `cv{number}_result.json`
 
 ## 📁 Directory Structure
 
@@ -242,7 +249,17 @@ Resume_extractor_project/
 │   │   └── processor.py      # LLM integration
 │   ├── web/                  # Web interface module
 │   │   ├── __init__.py
-│   │   └── app.py            # Flask web application
+│   │   ├── app.py            # Flask web application
+│   │   ├── static/           # Static CSS, JS, and images
+│   │   │   ├── style.css
+│   │   │   ├── scripts.js
+│   │   │   └── interface1.png
+│   │   └── templates/        # Flask HTML templates
+│   │       ├── base.html
+│   │       ├── index.html
+│   │       ├── result.html
+│   │       ├── error.html
+│   │       └── macros.html
 │   └── evaluation/           # Evaluation module
 │       ├── __init__.py
 │       ├── core.py           # Evaluation framework
@@ -257,10 +274,17 @@ Resume_extractor_project/
 │   ├── results/              # Structured JSON results
 │   ├── uploads/              # Web upload temporary storage
 │   ├── ground_truth/         # Manual annotations for evaluation
+│   │   ├── gt1.json
+│   │   ├── gt2.json
+│   │   ├── gt3.json
+│   │   ├── gt5.json
+│   │   └── gt6.json
 │   └── evaluation/           # Processed evaluation data
-├── evaluation_reports/       # Generated evaluation visualizations
-├── templates/                # Flask HTML templates
-├── static/                   # Static CSS and JS files
+│       ├── combined_ground_truth.json
+│       └── model_results/    # Results by model
+│           ├── llama3/
+│           ├── mistral/
+│           └── phi/
 ├── pipeline.py               # Legacy entry point (redirects to bin/)
 ├── run_web.py                # Legacy entry point (redirects to bin/)
 ├── run.sh                    # Launcher script for Linux/Mac
@@ -269,19 +293,12 @@ Resume_extractor_project/
 ├── docker-compose.yml        # Docker orchestration
 ├── requirements.txt          # Python dependencies
 ├── .env.example              # Example environment variables
+├── .env                      # Environment variables (not in git)
 ├── .gitignore                # Git ignore rules
+├── REORGANIZATION_SUMMARY.md # Project reorganization notes
 └── README.md                 # Project documentation
 ```
 
-## 📄 License
-
-[MIT License](LICENSE)
-
-## 🙏 Acknowledgements
-
-- Google's Gemini 1.5 Flash API for OCR capabilities
-- PyMuPDF for PDF processing
-- Ollama for local LLM inference 
 
 ## 🐳 Dockerization
 
@@ -310,23 +327,52 @@ If you prefer using Docker directly:
 # Build the Docker image
 docker build -t cv-extractor .
 
-# Run the container
-docker run -p 5000:5000 -v $(pwd)/data:/app/data -v $(pwd)/evaluation_reports:/app/evaluation_reports -e "GEMINI_API_KEY=your_key_here" cv-extractor
+# Run the container (Windows PowerShell)
+docker run -p 5000:5000 -v ${PWD}/data:/app/data -e "GOOGLE_API_KEY=your_key_here" -e "OPENROUTER_API_KEY=your_key_here" cv-extractor
+
+# Run the container (Linux/Mac)
+docker run -p 5000:5000 -v $(pwd)/data:/app/data -e "GOOGLE_API_KEY=your_key_here" -e "OPENROUTER_API_KEY=your_key_here" cv-extractor
 ```
 
 ### Container Details
 
-- Base image: Python 3.9 (slim)
-- Exposed port: 5000
-- Mounted volumes:
-  - `./data:/app/data`: Persists all data files
-  - `./evaluation_reports:/app/evaluation_reports`: Stores evaluation outputs
-- Dependencies: Includes Poppler for PDF processing and other required system libraries
+- **Base image**: Python 3.9 (slim)
+- **Exposed port**: 5000
+- **Mounted volumes**:
+  - `./data:/app/data`: Persists all data files (input, output, results, uploads)
+- **Dependencies**: Includes Poppler for PDF processing and other required system libraries
 
 ### Environment Variables
 
 Environment variables can be set in the `.env` file or passed directly to the container:
 
+**Required:**
+- `GOOGLE_API_KEY`: Google Gemini API key for OCR processing
+- `OPENROUTER_API_KEY`: OpenRouter API key for LLM access
+
+**Optional:**
+- `DEFAULT_MODELS`: Comma-separated list of models (default: `llama3,mistral,phi`)
+- `FLASK_PORT`: Web server port (default: `5000`)
+- `FLASK_ENV`: Environment mode (default: `development`)
+- `OCR_ENABLED`: Enable OCR for scanned PDFs (default: `true`)
+- `LOG_LEVEL`: Logging level (default: `INFO`)
+
+**Example:**
 ```bash
-docker run -p 5000:5000 -v $(pwd)/data:/app/data -v $(pwd)/evaluation_reports:/app/evaluation_reports -e "GEMINI_API_KEY=your_key_here" cv-extractor
+docker run -p 5000:5000 \
+  -v $(pwd)/data:/app/data \
+  -e "GOOGLE_API_KEY=your_google_key" \
+  -e "OPENROUTER_API_KEY=your_openrouter_key" \
+  -e "DEFAULT_MODELS=llama3,mistral" \
+  cv-extractor
 ```
+
+## 📄 License
+
+[MIT License](LICENSE)
+
+## 🙏 Acknowledgements
+
+- Google's Gemini 1.5 Flash API for OCR capabilities
+- PyMuPDF for PDF processing
+- Ollama for local LLM inference 
