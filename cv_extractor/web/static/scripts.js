@@ -127,9 +127,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function showAlert(message, type = 'warning') {
         const alertDiv = document.createElement('div');
-        alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+        alertDiv.className = `alert alert-${type} alert-dismissible fade show shadow-sm`;
+        alertDiv.style.cssText = 'border-radius: 10px; border: none; animation: slideInDown 0.3s ease;';
         alertDiv.innerHTML = `
-            ${message}
+            <i class="fas fa-${type === 'danger' ? 'exclamation-circle' : type === 'success' ? 'check-circle' : 'info-circle'} me-2"></i>
+            <strong>${type === 'danger' ? 'Error!' : type === 'success' ? 'Success!' : 'Info:'}</strong> ${message}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         `;
         
@@ -142,4 +144,41 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => alertDiv.remove(), 500);
         }, 5000);
     }
-}); 
+    
+    // Add smooth scrolling to all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Add loading animation to cards on hover
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Add pulse animation to important buttons
+    const importantBtns = document.querySelectorAll('.btn-primary, .btn-success');
+    importantBtns.forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            this.style.animation = 'pulse 1s infinite';
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+            this.style.animation = 'none';
+        });
+    });
+});
