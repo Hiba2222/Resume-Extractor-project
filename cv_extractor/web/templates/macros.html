@@ -1,0 +1,94 @@
+{# Reusable Jinja2 Macros #}
+
+{# Model Icon Macro #}
+{% macro model_icon(model_name) %}
+    {% if model_name == 'llama3' %}
+        <i class="fas fa-brain me-1"></i>
+    {% elif model_name == 'mistral' %}
+        <i class="fas fa-wind me-1"></i>
+    {% elif model_name == 'phi' %}
+        <i class="fas fa-atom me-1"></i>
+    {% else %}
+        <i class="fas fa-robot me-1"></i>
+    {% endif %}
+{% endmacro %}
+
+{# Personal Info Item Macro #}
+{% macro info_item(icon, label, value) %}
+    {% if value %}
+    <div class="info-item">
+        <p><i class="fas fa-{{ icon }} me-2"></i> <strong>{{ label }}:</strong></p>
+        <p>{{ value }}</p>
+    </div>
+    {% endif %}
+{% endmacro %}
+
+{# Education Item Macro #}
+{% macro education_item(edu) %}
+<div class="edu-item mb-3 p-3 border rounded">
+    <h5 class="text-primary">{{ edu.degree }}</h5>
+    <p class="mb-1">
+        <i class="fas fa-university me-2"></i>
+        <strong>Institution:</strong> {{ edu.institution }}
+    </p>
+    {% if edu.year %}
+    <p class="mb-2">
+        <i class="fas fa-calendar me-2"></i>
+        <strong>Year:</strong> {{ edu.year|replace('\u2013', '-')|replace('\u2014', '-') }}
+    </p>
+    {% endif %}
+    {% if edu.description and edu.description|length > 0 %}
+    <div class="mt-2">
+        <p class="mb-1"><strong>Details:</strong></p>
+        <ul class="small">
+            {% for desc in edu.description %}
+            <li>{{ desc }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{# Experience Item Macro #}
+{% macro experience_item(exp) %}
+<div class="exp-item mb-3 p-3 border rounded">
+    <h5 class="text-primary">{{ exp.job_title }}</h5>
+    <p class="mb-1">
+        <i class="fas fa-building me-2"></i>
+        <strong>Company:</strong> {{ exp.company }}
+    </p>
+    {% if exp.duration %}
+    <p class="mb-2">
+        <i class="fas fa-calendar me-2"></i>
+        <strong>Duration:</strong> {{ exp.duration|replace('\u2013', '-')|replace('\u2014', '-') }}
+    </p>
+    {% endif %}
+    {% if exp.description and exp.description|length > 0 %}
+    <div class="mt-2">
+        <p class="mb-1"><strong>Responsibilities:</strong></p>
+        <ul class="small">
+            {% for desc in exp.description %}
+            <li>{{ desc }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{# Skills List Macro #}
+{% macro skills_list(skills, title="Skills", icon="tools") %}
+{% if skills and skills|length > 0 %}
+<div class="skills mb-4">
+    <h4 class="section-title">
+        <i class="fas fa-{{ icon }} me-2"></i> {{ title }}
+    </h4>
+    <div class="d-flex flex-wrap gap-2">
+        {% for skill in skills %}
+        <span class="badge bg-primary">{{ skill }}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endmacro %}

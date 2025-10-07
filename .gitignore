@@ -25,12 +25,15 @@ venv/
 /raw/
 outputs/
 extracted_data/
-results/
+data/input/*.pdf
+data/output/*.txt
+data/results/*.json
+data/uploads/*
+data/evaluation/
+evaluation_reports/*.png
+evaluation_reports/*.csv
 *.csv
 *.xlsx
-*.json
-*.pdf
-*.txt
 
 # === Notebooks ===
 .ipynb_checkpoints/
@@ -40,6 +43,8 @@ logs/
 *.log
 .cache/
 __cache__/
+cache/
+data/cache/
 
 # === IDEs ===
 .vscode/
