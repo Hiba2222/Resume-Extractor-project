@@ -1,4 +1,7 @@
 #!/bin/bash
+# =============================================================================
+# CV Extractor - Launch Script
+# =============================================================================
 
 # Colors for terminal output
 GREEN='\033[0;32m'
@@ -44,13 +47,34 @@ start_with_python() {
         exit 1
     fi
     
-    echo -e "${YELLOW}Checking for required packages...${NC}"
+    echo -e "${YELLOW}Installing/updating dependencies...${NC}"
     if [ -f "requirements.txt" ]; then
         $PYTHON_CMD -m pip install -r requirements.txt
     fi
     
-    echo -e "${GREEN}Starting the application...${NC}"
-    $PYTHON_CMD run_web.py
+    echo -e "${GREEN}Starting the web application...${NC}"
+    echo -e "${BLUE}Access the application at: http://localhost:5000${NC}"
+    $PYTHON_CMD main.py web
+}
+
+# Function to run CLI mode
+run_cli() {
+    echo -e "${GREEN}Running CV Extractor in CLI mode...${NC}"
+    
+    if command -v python3 &>/dev/null; then
+        PYTHON_CMD="python3"
+    elif command -v python &>/dev/null; then
+        PYTHON_CMD="python"
+    else
+        echo -e "${RED}Error: Python not found.${NC}"
+        exit 1
+    fi
+    
+    echo -e "${YELLOW}Usage examples:${NC}"
+    echo -e "${BLUE}  $PYTHON_CMD main.py cli -i resume.pdf${NC}"
+    echo -e "${BLUE}  $PYTHON_CMD main.py cli -i resume.pdf -o results.json${NC}"
+    echo -e "${BLUE}  $PYTHON_CMD main.py eval${NC}"
+    echo -e "${BLUE}  $PYTHON_CMD main.py test${NC}"
 }
 
 # Function to stop Docker containers
@@ -63,18 +87,20 @@ stop_docker() {
 # Main menu
 show_menu() {
     echo -e "\n${YELLOW}Choose an option:${NC}"
-    echo -e "${BLUE}1.${NC} Start with Docker (recommended)"
-    echo -e "${BLUE}2.${NC} Start with Python directly"
-    echo -e "${BLUE}3.${NC} Stop running Docker containers"
-    echo -e "${BLUE}4.${NC} Exit"
+    echo -e "${BLUE}1.${NC} Start Web App with Docker (recommended)"
+    echo -e "${BLUE}2.${NC} Start Web App with Python directly"
+    echo -e "${BLUE}3.${NC} Show CLI usage examples"
+    echo -e "${BLUE}4.${NC} Stop running Docker containers"
+    echo -e "${BLUE}5.${NC} Exit"
     
-    read -p "Enter your choice [1-4]: " choice
+    read -p "Enter your choice [1-5]: " choice
     
     case $choice in
         1) start_with_docker ;;
         2) start_with_python ;;
-        3) stop_docker ;;
-        4) echo -e "${GREEN}Exiting. Goodbye!${NC}"; exit 0 ;;
+        3) run_cli ;;
+        4) stop_docker ;;
+        5) echo -e "${GREEN}Exiting. Goodbye!${NC}"; exit 0 ;;
         *) echo -e "${RED}Invalid choice. Please try again.${NC}"; show_menu ;;
     esac
 }

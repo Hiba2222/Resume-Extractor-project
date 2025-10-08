@@ -1,4 +1,8 @@
-FROM python:3.9-slim
+# =============================================================================
+# CV Extractor - Docker Configuration
+# =============================================================================
+
+FROM python:3.11-slim
 
 # Set working directory
 WORKDIR /app
@@ -10,46 +14,42 @@ RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy project files
-COPY . /app/
-
-# Create necessary directories if they don't exist
-RUN mkdir -p /app/data/input \
-    /app/data/output \
-    /app/data/output1 \
-    /app/data/ground_truth \
-    /app/data/evaluation \
-    /app/data/uploads \
-    /app/data/results \
-    /app/evaluation_reports
+# Copy requirements first for better caching
+COPY requirements.txt .
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt || \
-    (echo "WARNING: No requirements.txt found, installing common packages" && \
-     pip install --no-cache-dir \
-     flask==2.3.3 \
-     werkzeug==2.3.7 \
-     python-dotenv==1.0.0 \
-     PyMuPDF==1.23.7 \
-     pdf2image==1.16.3 \
-     pillow==10.0.1 \
-     google-generativeai==0.3.1 \
-     requests==2.31.0 \
-     tqdm==4.66.1 \
-     pathlib==1.0.1 \
-     numpy==1.24.3 \
-     pandas==2.0.3 \
-     matplotlib==3.7.2 \
-     scikit-learn==1.3.0 \
-     seaborn==0.12.2)
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Copy project files
+COPY . .
+
+# Create necessary directories
+RUN mkdir -p \
+    data/input \
+    data/uploads \
+    data/outputs \
+    data/results \
+    data/ground_truth
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
-ENV FLASK_APP=run_web.py
-ENV FLASK_ENV=production
+ENV PYTHONPATH=/app
+ENV HOST=0.0.0.0
+ENV PORT=5000
+ENV DEBUG=False
 
-# Expose the port the app runs on
+# Create non-root user for security
+RUN useradd --create-home --shell /bin/bash app && \
+    chown -R app:app /app
+USER app
+
+# Expose port
 EXPOSE 5000
 
+# Health check
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD python -c "import requests; requests.get('http://localhost:5000/api/health')" || exit 1
+
 # Command to run the application
-CMD ["python", "run_web.py"] 
+CMD ["python", "main.py", "web"]
