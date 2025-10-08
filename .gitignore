@@ -1,4 +1,8 @@
-# === Environment & Secrets ===
+# =============================================================================
+# CV Extractor - Git Ignore Rules
+# =============================================================================
+
+# Environment & Secrets
 .env
 .env.local
 .env.*.local
@@ -6,10 +10,8 @@
 *.secret
 *.pem
 credentials.json
-resume_extractor_clean/
 
-
-# === Python ===
+# Python
 __pycache__/
 *.py[cod]
 *.pyo
@@ -21,44 +23,40 @@ dist/
 build/
 .venv/
 venv/
-.env/
+*.egg
 
-# === Data & Outputs ===
-/raw/
-outputs/
-extracted_data/
+# Data & Processing Files
 data/input/*.pdf
-data/output/*.txt
-data/results/*.json
 data/uploads/*
-data/evaluation/
-evaluation_reports/*.png
-evaluation_reports/*.csv
-*.csv
-*.xlsx
+data/outputs/*
+data/results/*
+!data/uploads/.gitkeep
+!data/outputs/.gitkeep
+!data/results/.gitkeep
+!data/input/.gitkeep
 
-# === Notebooks ===
-.ipynb_checkpoints/
-
-# === Logs & Caches ===
+# Logs & Caches
 logs/
 *.log
 .cache/
-__cache__/
 cache/
-data/cache/
 
-# === IDEs ===
+# IDEs & Editors
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# === OS Files ===
+# OS Files
 .DS_Store
 Thumbs.db
 
-# === Temporary / Misc ===
+# Test Coverage
+htmlcov/
+.coverage
+.pytest_cache/
+
+# Temporary Files
 *.tmp
 *.bak
 *.old
