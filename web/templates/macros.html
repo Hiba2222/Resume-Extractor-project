@@ -1,3 +1,5 @@
+{# templates/macros.html #}
+
 {# Reusable Jinja2 Macros #}
 
 {# Model Icon Macro #}
@@ -15,64 +17,165 @@
 
 {# Personal Info Item Macro #}
 {% macro info_item(icon, label, value) %}
-    {% if value %}
-    <div class="info-item">
-        <p><i class="fas fa-{{ icon }} me-2"></i> <strong>{{ label }}:</strong></p>
-        <p>{{ value }}</p>
+    {% if value and value != "N/A" and value != "Not found" and value != "None" %}
+    <div class="info-item mb-2">
+        <p class="mb-1">
+            <i class="fas fa-{{ icon }} me-2 text-muted"></i> 
+            <strong>{{ label }}:</strong> 
+            <span class="ms-2">{{ value }}</span>
+        </p>
     </div>
     {% endif %}
 {% endmacro %}
 
-{# Education Item Macro #}
+{# Education Item Macro - FIXED DESCRIPTION HANDLING #}
 {% macro education_item(edu) %}
-<div class="edu-item mb-3 p-3 border rounded">
-    <h5 class="text-primary">{{ edu.degree }}</h5>
-    <p class="mb-1">
-        <i class="fas fa-university me-2"></i>
-        <strong>Institution:</strong> {{ edu.institution }}
-    </p>
-    {% if edu.year %}
-    <p class="mb-2">
-        <i class="fas fa-calendar me-2"></i>
-        <strong>Year:</strong> {{ edu.year|replace('\u2013', '-')|replace('\u2014', '-') }}
-    </p>
+<div class="edu-item mb-3 p-3 bg-light rounded">
+    {% if edu.Degree or edu.degree %}
+    <h5 class="text-primary mb-2">{{ edu.Degree or edu.degree }}</h5>
     {% endif %}
-    {% if edu.description and edu.description|length > 0 %}
-    <div class="mt-2">
-        <p class="mb-1"><strong>Details:</strong></p>
-        <ul class="small">
-            {% for desc in edu.description %}
-            <li>{{ desc }}</li>
-            {% endfor %}
-        </ul>
+    
+    <div class="mb-2">
+        <i class="fas fa-university me-2 text-muted"></i>
+        <strong>Institution:</strong> {{ edu.Institution or edu.institution or 'Not specified' }}
     </div>
+    
+    {% if edu.Year or edu.year %}
+    <div class="mb-2">
+        <i class="fas fa-calendar me-2 text-muted"></i>
+        <strong>Year:</strong> {{ (edu.Year or edu.year)|replace('\u2013', '-')|replace('\u2014', '-') }}
+    </div>
+    {% endif %}
+    
+    {# Handle description - fix for single letters #}
+    {% if edu.Description %}
+        {% if edu.Description is string %}
+            {# If it's a single string, just display it #}
+            <div class="mt-2">
+                <p class="mb-1"><strong>Details:</strong></p>
+                <p class="small mb-0">{{ edu.Description }}</p>
+            </div>
+        {% elif edu.Description is iterable %}
+            {# If it's a list, check if it's meaningful content #}
+            {% set meaningful_descriptions = [] %}
+            {% for desc in edu.Description %}
+                {% if desc|length > 1 and desc|trim != "" %}
+                    {% set _ = meaningful_descriptions.append(desc) %}
+                {% endif %}
+            {% endfor %}
+            
+            {% if meaningful_descriptions %}
+            <div class="mt-2">
+                <p class="mb-1"><strong>Details:</strong></p>
+                <ul class="small mb-0">
+                    {% for desc in meaningful_descriptions %}
+                    <li>{{ desc }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        {% endif %}
+    {% elif edu.description %}
+        {% if edu.description is string %}
+            <div class="mt-2">
+                <p class="mb-1"><strong>Details:</strong></p>
+                <p class="small mb-0">{{ edu.description }}</p>
+            </div>
+        {% elif edu.description is iterable %}
+            {% set meaningful_descriptions = [] %}
+            {% for desc in edu.description %}
+                {% if desc|length > 1 and desc|trim != "" %}
+                    {% set _ = meaningful_descriptions.append(desc) %}
+                {% endif %}
+            {% endfor %}
+            
+            {% if meaningful_descriptions %}
+            <div class="mt-2">
+                <p class="mb-1"><strong>Details:</strong></p>
+                <ul class="small mb-0">
+                    {% for desc in meaningful_descriptions %}
+                    <li>{{ desc }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        {% endif %}
     {% endif %}
 </div>
 {% endmacro %}
 
-{# Experience Item Macro #}
+{# Experience Item Macro - FIXED DESCRIPTION HANDLING #}
 {% macro experience_item(exp) %}
-<div class="exp-item mb-3 p-3 border rounded">
-    <h5 class="text-primary">{{ exp.job_title }}</h5>
-    <p class="mb-1">
-        <i class="fas fa-building me-2"></i>
-        <strong>Company:</strong> {{ exp.company }}
-    </p>
-    {% if exp.duration %}
-    <p class="mb-2">
-        <i class="fas fa-calendar me-2"></i>
-        <strong>Duration:</strong> {{ exp.duration|replace('\u2013', '-')|replace('\u2014', '-') }}
-    </p>
+<div class="exp-item mb-3 p-3 bg-light rounded">
+    {% if exp.Position or exp.job_title %}
+    <h5 class="text-primary mb-2">{{ exp.Position or exp.job_title }}</h5>
     {% endif %}
-    {% if exp.description and exp.description|length > 0 %}
-    <div class="mt-2">
-        <p class="mb-1"><strong>Responsibilities:</strong></p>
-        <ul class="small">
-            {% for desc in exp.description %}
-            <li>{{ desc }}</li>
-            {% endfor %}
-        </ul>
+    
+    <div class="mb-2">
+        <i class="fas fa-building me-2 text-muted"></i>
+        <strong>Company:</strong> {{ exp.Company or exp.company or 'Not specified' }}
     </div>
+    
+    {% if exp.Duration or exp.duration %}
+    <div class="mb-2">
+        <i class="fas fa-calendar me-2 text-muted"></i>
+        <strong>Duration:</strong> {{ (exp.Duration or exp.duration)|replace('\u2013', '-')|replace('\u2014', '-') }}
+    </div>
+    {% endif %}
+    
+    {# Handle description - fix for single letters #}
+    {% if exp.Description %}
+        {% if exp.Description is string %}
+            {# If it's a single string, just display it #}
+            <div class="mt-2">
+                <p class="mb-1"><strong>Responsibilities:</strong></p>
+                <p class="small mb-0">{{ exp.Description }}</p>
+            </div>
+        {% elif exp.Description is iterable %}
+            {# If it's a list, check if it's meaningful content #}
+            {% set meaningful_descriptions = [] %}
+            {% for desc in exp.Description %}
+                {% if desc|length > 1 and desc|trim != "" %}
+                    {% set _ = meaningful_descriptions.append(desc) %}
+                {% endif %}
+            {% endfor %}
+            
+            {% if meaningful_descriptions %}
+            <div class="mt-2">
+                <p class="mb-1"><strong>Responsibilities:</strong></p>
+                <ul class="small mb-0">
+                    {% for desc in meaningful_descriptions %}
+                    <li>{{ desc }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        {% endif %}
+    {% elif exp.description %}
+        {% if exp.description is string %}
+            <div class="mt-2">
+                <p class="mb-1"><strong>Responsibilities:</strong></p>
+                <p class="small mb-0">{{ exp.description }}</p>
+            </div>
+        {% elif exp.description is iterable %}
+            {% set meaningful_descriptions = [] %}
+            {% for desc in exp.description %}
+                {% if desc|length > 1 and desc|trim != "" %}
+                    {% set _ = meaningful_descriptions.append(desc) %}
+                {% endif %}
+            {% endfor %}
+            
+            {% if meaningful_descriptions %}
+            <div class="mt-2">
+                <p class="mb-1"><strong>Responsibilities:</strong></p>
+                <ul class="small mb-0">
+                    {% for desc in meaningful_descriptions %}
+                    <li>{{ desc }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        {% endif %}
     {% endif %}
 </div>
 {% endmacro %}
@@ -80,15 +183,25 @@
 {# Skills List Macro #}
 {% macro skills_list(skills, title="Skills", icon="tools") %}
 {% if skills and skills|length > 0 %}
-<div class="skills mb-4">
-    <h4 class="section-title">
-        <i class="fas fa-{{ icon }} me-2"></i> {{ title }}
-    </h4>
-    <div class="d-flex flex-wrap gap-2">
-        {% for skill in skills %}
-        <span class="badge bg-primary">{{ skill }}</span>
-        {% endfor %}
+    {# Filter out empty or invalid skills #}
+    {% set valid_skills = [] %}
+    {% for skill in skills %}
+        {% if skill and skill != "N/A" and skill != "None" and skill|trim != "" %}
+            {% set _ = valid_skills.append(skill) %}
+        {% endif %}
+    {% endfor %}
+    
+    {% if valid_skills %}
+    <div class="skills mb-4">
+        <h4 class="section-title border-bottom pb-2 mb-3">
+            <i class="fas fa-{{ icon }} me-2 text-primary"></i> {{ title }}
+        </h4>
+        <div class="d-flex flex-wrap gap-2">
+            {% for skill in valid_skills %}
+            <span class="badge bg-primary badge-model">{{ skill }}</span>
+            {% endfor %}
+        </div>
     </div>
-</div>
+    {% endif %}
 {% endif %}
 {% endmacro %}

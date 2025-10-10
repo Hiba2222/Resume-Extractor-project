@@ -4,7 +4,7 @@ CV Extractor Web Application
 Flask web interface for CV extraction and processing.
 """
 
-from flask import Flask, render_template, request, redirect, url_for, send_file, jsonify, flash
+from flask import Flask, render_template, request, redirect, url_for, send_file, jsonify, flash, session
 import os
 import uuid
 import json
@@ -92,10 +92,16 @@ def register_routes(app):
             flash('Only PDF files are allowed')
             return redirect(url_for('upload_page'))
         
-        # Get selected models
-        models = request.form.getlist('models')
-        if not models:
-            models = ['llama3', 'mistral', 'phi']  # Default models
+        # Get selected models - FIXED: handle both 'model' and 'models'
+        selected_model = request.form.get('model')  # Single model from radio buttons
+        if selected_model:
+            models = [selected_model]
+        else:
+            models = request.form.getlist('models')  # Multiple models from checkboxes
+            if not models:
+                models = ['phi']  # Default to phi if none selected
+        
+        print(f"Selected models: {models}")
         
         # Save and process file
         try:
@@ -113,15 +119,22 @@ def register_routes(app):
             session_file = os.path.join(app.config['RESULTS_FOLDER'], f"{session_id}_session.json")
             result_files = {}
             
+            # Transform results to match template expectations
+            transformed_results = {}
             for model, data in results.items():
+                # Transform the nested structure to flat structure expected by template
+                transformed_data = transform_data_structure(data)
+                transformed_results[model] = transformed_data
+                
+                # Save transformed data
                 result_file = os.path.join(app.config['RESULTS_FOLDER'], f"{session_id}_{model}_result.json")
                 with open(result_file, 'w', encoding='utf-8') as f:
-                    json.dump(data, f, indent=4, ensure_ascii=False)
+                    json.dump(transformed_data, f, indent=4, ensure_ascii=False)
                 result_files[model] = result_file
             
             session_data = {
                 'pdf_path': filepath,
-                'results': results,
+                'results': transformed_results,  # Use transformed results
                 'result_files': result_files,
                 'original_filename': file.filename
             }
@@ -129,19 +142,23 @@ def register_routes(app):
             with open(session_file, 'w', encoding='utf-8') as f:
                 json.dump(session_data, f, indent=4, ensure_ascii=False)
             
+            print(f"Processing complete. Redirecting to results page with session: {session_id}")
             return redirect(url_for('show_results', session_id=session_id))
             
         except Exception as e:
             flash(f'Error processing PDF: {str(e)}')
+            print(f"Upload error: {str(e)}")
             return redirect(url_for('upload_page'))
 
     @app.route('/results/<session_id>')
     def show_results(session_id):
         """Display extraction results"""
+        print(f"Loading results for session: {session_id}")
         session_file = os.path.join(app.config['RESULTS_FOLDER'], f"{session_id}_session.json")
         
         if not os.path.exists(session_file):
             flash('Session not found')
+            print(f"Session file not found: {session_file}")
             return redirect(url_for('upload_page'))
         
         try:
@@ -152,16 +169,24 @@ def register_routes(app):
             results = session_data['results']
             original_filename = session_data.get('original_filename', 'Unknown')
             
+            print(f"Loaded results keys: {list(results.keys()) if results else 'No results'}")
+            
             # Generate URL for PDF viewing
             pdf_url = url_for('serve_pdf', session_id=session_id)
             
-            return render_template('result.html', 
+            # DEBUG: Print results structure
+            if results:
+                for model, data in results.items():
+                    print(f"Model {model} data keys: {list(data.keys()) if data else 'No data'}")
+            
+            return render_template('results.html',  # FIXED: changed from result.html to results.html
                                  pdf_url=pdf_url, 
                                  results=results,
                                  original_filename=original_filename,
                                  session_id=session_id)
         except Exception as e:
             flash(f'Error loading results: {str(e)}')
+            print(f"Results loading error: {str(e)}")
             return redirect(url_for('upload_page'))
 
     @app.route('/pdf/<session_id>')
@@ -279,6 +304,44 @@ def register_error_handlers(app):
                              error="Page not found."), 404
 
 
+def transform_data_structure(data):
+    """Transform nested data structure to flat structure expected by template"""
+    if not data:
+        return {}
+    
+    if 'error' in data:
+        return data
+    
+    transformed = {}
+    
+    # Extract personal info
+    if 'personal_info' in data:
+        personal_info = data['personal_info']
+        transformed['Name'] = personal_info.get('name', '')
+        transformed['Email'] = personal_info.get('email', '')
+        transformed['Phone'] = personal_info.get('phone', '')
+        transformed['Address'] = personal_info.get('address', '')
+    
+    # Fix descriptions - join single characters
+    def fix_descriptions(items):
+        for item in items:
+            for key in ['description', 'Description']:
+                if key in item and isinstance(item[key], list):
+                    # Join if all items are single characters
+                    if item[key] and all(len(str(x)) == 1 for x in item[key]):
+                        item[key] = ''.join(item[key])
+        return items
+    
+    transformed['Education'] = fix_descriptions(data.get('education', []))
+    transformed['Experience'] = fix_descriptions(data.get('experience', []))
+    transformed['Skills'] = data.get('skills', [])
+    transformed['Languages'] = data.get('languages', [])
+    
+    if 'error' in data:
+        transformed['error'] = data['error']
+    
+    return transformed
+
 def process_pdf(pdf_path, models):
     """Process the PDF and extract information using selected models"""
     # Initialize PDF extractor
@@ -325,6 +388,7 @@ def process_pdf(pdf_path, models):
                 info = cv_extractor.extract_from_cv(text, model=model)
                 results[model] = info
                 print(f"Model {model} completed successfully")
+                print(f"Model {model} result keys: {list(info.keys()) if info else 'No info'}")
                 
             except Exception as e:
                 print(f"Error with model {model}: {str(e)}")
