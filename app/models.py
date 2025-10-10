@@ -37,45 +37,46 @@ class CVInfoExtractor:
         # Extraction prompt template
         self.extraction_prompt = """You are a CV information extraction expert. Extract structured information from this text and format it as valid JSON.
 
-IMPORTANT: Your response MUST be ONLY a valid JSON object with no additional text, explanation, or markdown formatting.
+            IMPORTANT: Your response MUST be ONLY a valid JSON object with no additional text, explanation, or markdown formatting.
 
-Extract these fields:
-- personal_info: Object with name, email, phone, address
-- education: Array of education entries
-- experience: Array of work experience entries  
-- skills: Array of skills
-- languages: Array of languages
+            Extract these fields:
+            - personal_info: Object with name, email, phone, address
+            - education: Array of education entries
+            - experience: Array of work experience entries  
+            - skills: Array of skills
+            - languages: Array of languages
 
-JSON Structure:
-{{
-  "personal_info": {{
-    "name": "Person's full name",
-    "email": "email@example.com", 
-    "phone": "+1 234 567 8900",
-    "address": "123 Example Street, Example City"
-  }},
-  "education": [
-    {{
-      "degree": "Degree name",
-      "institution": "Institution name",
-      "year": "Time period",
-      "description": "Additional details"
-    }}
-  ],
-  "experience": [
-    {{
-      "job_title": "Position title",
-      "company": "Company name", 
-      "duration": "Time period",
-      "description": "Key responsibilities and achievements"
-    }}
-  ],
-  "skills": ["Skill 1", "Skill 2", "Skill 3"],
-  "languages": ["Language 1", "Language 2"]
-}}
+            JSON Structure:
+            {{
+            "personal_info": {{
+                "name": "Person's full name",
+                "email": "email@example.com", 
+                "phone": "+1 234 567 8900",
+                "address": "123 Example Street, Example City"
+            }},
+            "education": [
+                {{
+                "degree": "Degree name",
+                "institution": "Institution name",
+                "year": "Time period",
+                "description": "Additional details"
+                }}
+            ],
+            "experience": [
+                {{
+                "job_title": "Position title",
+                "company": "Company name", 
+                "duration": "Time period",
+                "description": "Key responsibilities and achievements"
+                }}
+            ],
+            "skills": ["Skill 1", "Skill 2", "Skill 3"],
+            "languages": ["Language 1", "Language 2"]
+            }}
 
-CV Text:
-{cv_text}"""
+            CV Text:
+            {cv_text}
+        """
     
     def check_ollama_available(self):
         """Verify Ollama API is running"""

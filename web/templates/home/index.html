@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block title %}CV Extractor - AI-Powered Resume Analysis{% endblock %}
+
+{% block extra_css %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section -->
+    <section class="hero-banner text-center">
+        <div class="hero-content">
+            <div class="floating-element mb-4">
+                <i class="fas fa-robot fa-5x"></i>
+            </div>
+            <h1 class="hero-title display-2 fw-bold mb-3">CV Extractor</h1>
+            <p class="hero-subtitle lead fs-3 mb-4">Transform your resume into structured data with AI precision</p>
+            <div class="hero-badges mb-4">
+                <span class="tech-badge"><i class="fas fa-brain me-1"></i> AI-Powered</span>
+                <span class="tech-badge"><i class="fas fa-bolt me-1"></i> Lightning Fast</span>
+                <span class="tech-badge"><i class="fas fa-shield-alt me-1"></i> Secure & Private</span>
+                <span class="tech-badge"><i class="fas fa-download me-1"></i> JSON Export</span>
+            </div>
+            <div class="hero-actions d-grid gap-2 d-md-flex justify-content-md-center">
+                <a href="{{ url_for('upload_page') }}" class="btn btn-light btn-lg px-5 me-md-2 cta-primary">
+                    <i class="fas fa-upload me-2"></i> Start Extracting
+                </a>
+                <a href="#features" class="btn btn-outline-light btn-lg px-5 cta-secondary">
+                    <i class="fas fa-info-circle me-2"></i> Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-showcase mb-5">
+        <header class="section-header text-center mb-5">
+            <h2 class="section-title display-4 fw-bold mb-3">Why Choose CV Extractor?</h2>
+            <p class="section-subtitle lead text-muted">Powerful AI models extract structured information from any resume format</p>
+        </header>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-purple">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold mb-3">Multiple AI Models</h4>
+                    <p class="feature-description text-muted">Choose from Llama 3, Mistral, or Phi models for optimal extraction accuracy based on your document type.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-teal">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold mb-3">OCR & Text Recognition</h4>
+                    <p class="feature-description text-muted">Advanced OCR technology handles both text-based PDFs and scanned documents with high accuracy.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-orange">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold mb-3">Structured Output</h4>
+                    <p class="feature-description text-muted">Extract personal info, education, experience, skills, and languages in clean JSON format.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-red">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold mb-3">Privacy First</h4>
+                    <p class="feature-description text-muted">Your documents are processed securely and deleted after extraction. No data is stored permanently.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-green">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold mb-3">Export Ready</h4>
+                    <p class="feature-description text-muted">Download extracted data as JSON for easy integration with your HR systems or databases.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-blue">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold mb-3">Mobile Friendly</h4>
+                    <p class="feature-description text-muted">Responsive design works perfectly on desktop, tablet, and mobile devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="row">
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <p class="stat-label text-muted mb-0">AI Models</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <span class="stat-number">99%</span>
+                    <p class="stat-label text-muted mb-0">Accuracy</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <span class="stat-number">< 30s</span>
+                    <p class="stat-label text-muted mb-0">Processing Time</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <p class="stat-label text-muted mb-0">Secure</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works-section mb-5">
+        <header class="section-header text-center mb-5">
+            <h2 class="section-title display-4 fw-bold mb-3">How It Works</h2>
+            <p class="section-subtitle lead text-muted">Simple 3-step process to extract structured data from any resume</p>
+        </header>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="process-step text-center">
+                    <div class="feature-icon process-icon-blue mb-3">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h4 class="step-title fw-bold">1. Upload</h4>
+                    <p class="step-description text-muted">Drag and drop your PDF resume or click to browse files. We support all PDF formats.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="process-step text-center">
+                    <div class="feature-icon process-icon-purple mb-3">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h4 class="step-title fw-bold">2. Process</h4>
+                    <p class="step-description text-muted">Our AI models analyze the document and extract structured information automatically.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="process-step text-center">
+                    <div class="feature-icon process-icon-green mb-3">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4 class="step-title fw-bold">3. Download</h4>
+                    <p class="step-description text-muted">Review the extracted data and download it as JSON for your applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="cta-title display-4 fw-bold mb-3">Ready to Get Started?</h2>
+        <p class="cta-subtitle lead mb-4">Extract structured data from your first resume in under 30 seconds</p>
+        <a href="{{ url_for('upload_page') }}" class="btn btn-light btn-lg px-5 cta-button">
+            <i class="fas fa-rocket me-2"></i> Start Now - It's Free
+        </a>
+    </section>
+
+</div>
+{% endblock %}

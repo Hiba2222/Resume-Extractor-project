@@ -1,111 +1,141 @@
-# CV Extractor - New Project Structure
+# CV Extractor 
 
 ## 🎯 **Overview**
-Professional AI-powered CV/Resume data extraction tool with a clean, organized structure.
+Professional AI-powered CV/Resume data extraction tool with modern web interface, modular architecture, and comprehensive testing suite. Built with Flask, featuring multiple AI models (Llama 3, Mistral, Phi) and beautiful, responsive UI.
 
-## 📁 **New Project Structure**
+## ✨ **Key Features**
+- 🤖 **Multiple AI Models** - Llama 3, Mistral, and Microsoft Phi
+- 🎨 **Modern Web Interface** - Responsive design with semantic HTML/CSS
+- 📱 **Mobile Optimized** - Works perfectly on all devices
+- 🔄 **Real-time Processing** - Live extraction with progress indicators
+- 📊 **Comprehensive Results** - Structured data extraction with JSON export
+- 🧪 **Full Test Coverage** - Comprehensive testing framework
+- 🏗️ **Modular Architecture** - Clean, maintainable codebase
+
+## 📁 **Project Structure**
 
 ```
-cv-extractor/
-├── 📄 main.py                    # Single entry point
-├── 📄 requirements.txt
-├── 📄 .env.example
-├── 📄 .gitignore
-├── 📄 README.md
+Resume_extractor_project/
+├── 📄 Dockerfile                # Docker configuration
+├── 📄 README.md                 # This file
 │
-├── 📁 app/                       # Main application
+├── 📁 app/                      # Core application logic
 │   ├── 📄 __init__.py
-│   ├── 📄 config.py             # Configuration
-│   ├── 📄 pipeline.py           # Core processing
-│   ├── 📄 models.py             # AI models
-│   ├── 📄 extractor.py          # PDF extraction
-│   └── 📄 utils.py              # Utilities
+│   ├── 📄 config.py            # Configuration management
+│   ├── 📄 pipeline.py          # Processing pipeline
+│   ├── 📄 models.py            # AI model implementations
+│   ├── 📄 extractor.py         # PDF extraction logic
+│   └── 📄 utils.py             # Utility functions
 │
-├── 📁 web/                       # Web interface
+├── 📁 web/                      # Modern web interface
+│   ├── 📄 app.py               # Flask application
+│   ├── 📁 static/              # Static assets (modular)
+│   │   ├── 📁 css/            # Modular CSS architecture
+│   │   │   ├── 📄 main.css    # Main CSS (imports all)
+│   │   │   ├── 📄 base.css    # Variables & typography
+│   │   │   ├── 📄 layout.css  # Navigation & layout
+│   │   │   ├── 📄 components.css # Reusable components
+│   │   │   ├── 📄 pages.css   # Page-specific styles
+│   │   │   ├── 📄 upload.css  # Upload functionality
+│   │   │   └── 📄 animations.css # Animations & effects
+│   │   └── 📁 js/             # Modular JavaScript
+│   │       ├── 📄 main.js     # Main initialization
+│   │       ├── 📄 common.js   # Shared utilities
+│   │       ├── 📄 upload.js   # Upload functionality
+│   │       └── 📄 results.js  # Results page logic
+│   └── 📁 templates/           # Jinja2 templates (organized)
+│       ├── 📁 base/           # Reusable components
+│       │   ├── 📄 head.html   # HTML head
+│       │   ├── 📄 navigation.html # Navigation bar
+│       │   ├── 📄 footer.html # Footer
+│       │   ├── 📄 flash_messages.html # Flash messages
+│       │   └── 📄 scripts.html # Script includes
+│       ├── 📁 home/           # Home page
+│       │   └── 📄 index.html
+│       ├── 📁 about/          # About page
+│       │   └── 📄 index.html
+│       ├── 📁 upload/         # Upload page
+│       │   └── 📄 index.html
+│       ├── 📁 results/        # Results page
+│       │   └── 📄 index.html
+│       ├── 📄 base.html       # Base template
+│       ├── 📄 error.html      # Error pages
+│       └── 📄 macros.html     # Jinja2 macros
+│
+├── 📁 evaluation/              # Model evaluation system
 │   ├── 📄 __init__.py
-│   ├── 📄 app.py                # Flask app
-│   ├── 📁 static/
-│   │   ├── 📄 style.css
-│   │   ├── 📄 scripts.js
-│   │   └── 📄 interface1.png
-│   └── 📁 templates/
-│       ├── 📄 base.html
-│       ├── 📄 home.html
-│       ├── 📄 index.html
-│       ├── 📄 result.html
-│       ├── 📄 about.html
-│       ├── 📄 error.html
-│       └── 📄 macros.html
+│   ├── 📄 evaluator.py        # Evaluation logic
+│   ├── 📄 metrics.py          # Performance metrics
+│   ├── 📄 core.py             # Core evaluation
+│   └── 📄 runner.py           # Evaluation runner
 │
-├── 📁 evaluation/                # Model evaluation
+├── 📁 tests/                   # Comprehensive test suite
 │   ├── 📄 __init__.py
-│   ├── 📄 evaluator.py          # Evaluation logic
-│   ├── 📄 metrics.py            # Evaluation metrics
-│   ├── 📄 core.py               # Core evaluation
-│   └── 📄 runner.py             # Evaluation runner
+│   ├── 📄 test_pipeline.py    # Core logic tests
+│   ├── 📄 test_models.py      # AI model tests
+│   └── 📄 test_web.py         # Web interface tests
 │
-├── 📁 tests/                     # Test suite
-│   ├── 📄 __init__.py
-│   ├── 📄 test_pipeline.py      # Core tests
-│   ├── 📄 test_models.py        # Model tests
-│   ├── 📄 test_web.py           # Web tests
-│   └── 📁 fixtures/             # Test data
+├── 📁 data/                    # Data storage
+│   ├── 📁 cache/             # Processing cache
+│   ├── 📁 ground_truth/      # Evaluation datasets
+│   ├── 📁 input/             # Sample CV files
+│   ├── 📁 outputs/           # Processing outputs
+│   ├── 📁 results/           # Session results
+│   └── 📁 uploads/           # Temporary uploads
 │
-├── 📁 data/                      # Data storage
-│   ├── 📁 uploads/              # Temp uploads
-│   ├── 📁 outputs/              # Results
-│   ├── 📁 results/              # Processing results
-│   ├── 📁 input/                # Input files
-│   └── 📁 ground_truth/         # Evaluation data
-│
-└── 📁 scripts/                   # Utility scripts
-    ├── 📄 run_web.py            # Start web app
-    ├── 📄 run_evaluation.py     # Run evaluation
-    └── 📄 run_tests.py          # Run tests
+└── 📁 scripts/                 # Utility scripts
+    ├── 📄 run_web.py          # Start web server
+    ├── 📄 run_evaluation.py   # Run evaluations
+    └── 📄 run_tests.py        # Run test suite
 ```
 
 ## 🚀 **Quick Start**
 
-### **1. Web Application**
+### **1. Installation**
 ```bash
-# Method 1: Using main entry point
-python main.py web
+# Clone the repository
+git clone <repository-url>
+cd Resume_extractor_project
 
-# Method 2: Using script
-python scripts/run_web.py
+# Install dependencies
+pip install -r requirements.txt
 
-# Method 3: Direct
+# Set up environment variables (optional)
+cp .env.example .env
+```
+
+### **2. Start Web Application**
+```bash
+# Start the Flask web server
 python web/app.py
+
+# Or using scripts
+python scripts/run_web.py
 ```
 
-### **2. CLI Processing**
-```bash
-# Process single file
-python main.py cli -i resume.pdf
+Visit `http://localhost:5000` to access the web interface.
 
-# Process with specific model
-python main.py cli -i resume.pdf -m mistral
+### **3. Using the Web Interface**
 
-# Save to file
-python main.py cli -i resume.pdf -o results.json
-```
-
-### **3. Run Evaluation**
-```bash
-# Using main entry point
-python main.py eval
-
-# Using script
-python scripts/run_evaluation.py --cv-dir data/samples
-```
+1. **Home Page** - Overview of features and capabilities
+2. **Upload CV** - Drag & drop or browse to upload PDF files
+3. **Select AI Model** - Choose from Llama 3, Mistral, or Phi
+4. **View Results** - See extracted data with original PDF side-by-side
+5. **Export Data** - Download results as JSON
 
 ### **4. Run Tests**
 ```bash
-# Using main entry point
-python main.py test
-
-# Using script
+# Run all tests
 python scripts/run_tests.py
+
+# Run specific test module
+python -m pytest tests/test_web.py -v
+```
+
+### **5. Run Evaluation**
+```bash
+# Evaluate model performance
+python scripts/run_evaluation.py --cv-dir data/input
 ```
 
 ## 🔧 **Configuration**
@@ -121,72 +151,112 @@ print(Config.PORT)
 print(Config.DEFAULT_MODEL)
 ```
 
-## 📦 **Key Improvements**
+## 🎨 **UI/UX Features**
 
-### **✅ Benefits of New Structure:**
-- **Clean separation** of concerns
-- **Easy to navigate** and understand
-- **Modular design** - each component is independent
-- **Professional structure** following Python best practices
-- **Comprehensive testing** framework
-- **Evaluation system** for model performance
-- **Single entry point** for all operations
-- **Centralized configuration**
+### **Modern Design System**
+- **Consistent Colors** - Professional blue gradient theme
+- **Responsive Layout** - Mobile-first design approach
+- **Semantic HTML** - Accessible and SEO-friendly structure
+- **Modular CSS** - 7 organized CSS files for maintainability
+- **Smooth Animations** - Floating dots, hover effects, and transitions
+- **Interactive Elements** - Drag & drop, model selection, progress indicators
 
-### **🔄 Migration Changes:**
-- `cv_extractor/` → `app/` (core application)
-- `cv_extractor/web/` → `web/` (web interface)
-- `cv_extractor/evaluation/` → `evaluation/` (evaluation system)
-- `bin/` → `scripts/` (utility scripts)
-- All imports updated to new structure
-- Single `main.py` entry point
+### **User Experience**
+- **Intuitive Navigation** - Clear page structure and flow
+- **Real-time Feedback** - Loading states and progress indicators
+- **Error Handling** - Graceful error messages and recovery
+- **Mobile Optimized** - Touch-friendly interface for all devices
+- **Accessibility** - ARIA labels and semantic markup
 
-## 🧪 **Testing**
+## 🏗️ **Architecture Highlights**
 
+### **Frontend Architecture**
+- **Component-Based** - Reusable template components
+- **Modular CSS** - Organized by functionality (base, layout, components, pages)
+- **Progressive Enhancement** - Works without JavaScript
+- **Cache Optimization** - Versioned assets and proper headers
+
+### **Backend Architecture**
+- **MVC Pattern** - Clear separation of concerns
+- **Modular Design** - Independent, testable components
+- **Configuration Management** - Centralized settings
+- **Error Handling** - Comprehensive error management
+- **Session Management** - Secure file handling and cleanup
+
+## 🧪 **Testing & Quality**
+
+### **Test Coverage**
+- **Unit Tests** - Core logic and model testing
+- **Integration Tests** - End-to-end workflow testing
+- **Web Tests** - Flask application testing
+- **Fixtures** - Reusable test data and mocks
+
+### **Code Quality**
+- **Clean Code** - Following Python best practices
+- **Documentation** - Comprehensive inline documentation
+- **Type Hints** - Enhanced code reliability
+- **Error Handling** - Robust error management
+
+## 🚀 **Deployment**
+
+### **Docker Support**
 ```bash
-# Run all tests
-python main.py test
+# Build Docker image
+docker build -t cv-extractor .
 
-# Run specific test module
-python scripts/run_tests.py --module test_pipeline
-
-# Run with coverage
-python scripts/run_tests.py --coverage
+# Run container
+docker run -p 5000:5000 cv-extractor
 ```
 
-## 📊 **Evaluation**
+### **Production Considerations**
+- **Environment Variables** - Secure configuration management
+- **Static File Serving** - Optimized for production
+- **Error Logging** - Comprehensive logging system
+- **Security** - CSRF protection and secure file handling
 
-```bash
-# Evaluate single CV
-python scripts/run_evaluation.py --single-cv resume.pdf
+## 🔧 **Development**
 
-# Evaluate dataset
-python scripts/run_evaluation.py --cv-dir data/samples --models llama3 mistral phi
+### **Adding New Features**
+1. **Backend Logic** → Add to `app/` modules
+2. **Frontend** → Update templates and static files
+3. **Styling** → Add to appropriate CSS module
+4. **Testing** → Add tests to `tests/` directory
+5. **Documentation** → Update README and inline docs
 
-# Custom output
-python scripts/run_evaluation.py --cv-dir data/samples --output my_report.json
-```
+### **CSS Architecture**
+- `base.css` - Variables, typography, base styles
+- `layout.css` - Navigation, footer, main layout
+- `components.css` - Reusable UI components
+- `pages.css` - Page-specific styles
+- `upload.css` - Upload functionality styles
+- `animations.css` - Animations and transitions
+- `main.css` - Imports all modules
 
-## 🔍 **Development**
+### **JavaScript Modules**
+- `main.js` - Application initialization
+- `common.js` - Shared utilities and functions
+- `upload.js` - File upload and drag-drop functionality
+- `results.js` - Results page interactions
 
-### **Adding New Models:**
-1. Add model config to `app/config.py`
-2. Update `app/models.py` with new model logic
-3. Add tests in `tests/test_models.py`
+## 🎯 **Project Status**
 
-### **Adding New Features:**
-1. Core logic → `app/`
-2. Web interface → `web/`
-3. Tests → `tests/`
-4. Documentation → Update README
+✅ **Completed Features:**
+- Modern, responsive web interface
+- Multiple AI model support (Llama 3, Mistral, Phi)
+- Comprehensive CSS/JS refactoring
+- Component-based template architecture
+- Mobile-optimized design
+- Real-time file processing
+- JSON export functionality
+- Comprehensive test suite
+- Clean project structure
 
-## 🎉 **Ready to Use!**
+🚀 **Ready for Production!**
 
-The project is now organized with a professional, clean structure that's easy to:
-- **Navigate** and understand
-- **Extend** with new features
-- **Test** comprehensively
-- **Deploy** to production
-- **Maintain** long-term
+The CV Extractor is now a professional-grade application with:
+- **Clean Architecture** - Maintainable and scalable codebase
+- **Modern UI/UX** - Beautiful, responsive interface
+- **Robust Testing** - Comprehensive test coverage
+- **Production Ready** - Docker support and deployment considerations
 
-Start with: `python main.py web` and visit http://localhost:5000
+Start exploring: `python web/app.py` → http://localhost:5000

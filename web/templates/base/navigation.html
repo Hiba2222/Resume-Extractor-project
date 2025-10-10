@@ -1,0 +1,36 @@
+<!-- Navigation Component -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top main-navbar">
+    <div class="container">
+        <a class="navbar-brand brand-logo fw-bold" href="{{ url_for('home') }}">
+            <i class="fas fa-robot text-primary me-2"></i>
+            <span class="brand-text">CV Extractor</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav-menu ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-item" href="{{ url_for('home') }}">
+                        <i class="fas fa-home me-1"></i> 
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-item" href="{{ url_for('upload_page') }}">
+                        <i class="fas fa-upload me-1"></i> 
+                        <span class="nav-text">Upload CV</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-item" href="{{ url_for('about') }}">
+                        <i class="fas fa-info-circle me-1"></i> 
+                        <span class="nav-text">About</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -90,7 +90,7 @@ class TestWebApplication(unittest.TestCase):
     def test_static_files(self):
         """Test static file serving."""
         # Test CSS file
-        response = self.client.get('/static/style.css')
+        response = self.client.get('/static/css/main.css')
         self.assertIn(response.status_code, [200, 404])  # 404 is OK if file doesn't exist yet
     
     def test_error_handling(self):

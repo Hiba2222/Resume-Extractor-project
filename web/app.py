@@ -29,6 +29,9 @@ def create_app(testing=False):
                template_folder='templates',
                static_folder='static')
     
+    # Disable caching for static files during development
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+    
     if testing:
         app.config.update({
             'TESTING': True,
@@ -63,17 +66,17 @@ def register_routes(app):
     @app.route('/')
     def home():
         """Home page with overview and features"""
-        return render_template('home.html')
+        return render_template('home/index.html')
 
     @app.route('/upload')
     def upload_page():
         """Upload page for CV processing"""
-        return render_template('index.html')
+        return render_template('upload/index.html')
 
     @app.route('/about')
     def about():
         """About page with project information"""
-        return render_template('about.html')
+        return render_template('about/index.html')
 
     @app.route('/process', methods=['POST'])
     def upload_file():
@@ -179,7 +182,7 @@ def register_routes(app):
                 for model, data in results.items():
                     print(f"Model {model} data keys: {list(data.keys()) if data else 'No data'}")
             
-            return render_template('results.html',  # FIXED: changed from result.html to results.html
+            return render_template('results/index.html',
                                  pdf_url=pdf_url, 
                                  results=results,
                                  original_filename=original_filename,
@@ -302,6 +305,26 @@ def register_error_handlers(app):
     def not_found_error(error):
         return render_template('error.html', 
                              error="Page not found."), 404
+    
+    @app.route('/clear-cache')
+    def clear_cache():
+        """Clear cache helper route."""
+        return """
+        <html>
+        <head>
+            <title>Cache Cleared</title>
+            <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+            <meta http-equiv="Pragma" content="no-cache">
+            <meta http-equiv="Expires" content="0">
+        </head>
+        <body>
+            <h1>Cache Cleared</h1>
+            <p>Server-side caching has been disabled.</p>
+            <p>Please clear your browser cache and hard refresh (Ctrl+Shift+R) to see changes.</p>
+            <p><a href="/">Go to Home Page</a></p>
+        </body>
+        </html>
+        """
 
 
 def transform_data_structure(data):

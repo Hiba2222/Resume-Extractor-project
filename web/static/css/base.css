@@ -1,0 +1,99 @@
+/* Base styles and CSS variables */
+:root {
+    --primary-color: #1a365d;
+    --primary-hover: #2c5282;
+    --secondary-color: #4a5568;
+    --accent-color: #3182ce;
+    --accent-light: #63b3ed;
+    --success-color: #38a169;
+    --success-light: #68d391;
+    --danger-color: #e53e3e;
+    --warning-color: #d69e2e;
+    --warning-light: #f6e05e;
+    --purple-accent: #805ad5;
+    --teal-accent: #319795;
+    --orange-accent: #dd6b20;
+    --light-bg: #f7fafc;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --card-shadow-colored: 0 4px 6px -1px rgba(49, 130, 206, 0.2), 0 2px 4px -1px rgba(49, 130, 206, 0.1);
+    --border-radius: 0.5rem;
+    --border-radius-lg: 0.75rem;
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base typography and layout */
+body {
+    background: #f7fafc;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #2d3748;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+.lead {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+.text-muted {
+    color: #718096 !important;
+}
+
+.container {
+    max-width: 900px;
+}
+
+/* Utility classes */
+.text-accent {
+    color: var(--accent-color) !important;
+}
+
+.text-success-accent {
+    color: var(--success-color) !important;
+}
+
+.text-warning-accent {
+    color: var(--warning-color) !important;
+}
+
+.bg-accent-light {
+    background: linear-gradient(135deg, rgba(49, 130, 206, 0.1) 0%, rgba(56, 161, 105, 0.1) 100%);
+}
+
+.border-accent {
+    border-color: var(--accent-light) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

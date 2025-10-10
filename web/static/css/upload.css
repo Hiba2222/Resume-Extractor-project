@@ -1,0 +1,266 @@
+/* Upload component styles */
+
+/* File upload area */
+.file-upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.file-upload-area:hover {
+    border-color: #0066cc;
+    background-color: #f1f8ff;
+}
+
+.file-upload-area.highlight {
+    border-color: #0066cc;
+    background-color: #e6f2ff;
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    margin-bottom: 1rem;
+}
+
+.upload-title {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.upload-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.browse-btn {
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.browse-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+/* File info display */
+.file-info {
+    animation: slideInUp 0.3s ease;
+}
+
+.file-selected-alert {
+    border-radius: var(--border-radius);
+    border: none;
+    background: linear-gradient(135deg, var(--success-color) 0%, var(--success-light) 100%);
+    color: white;
+    font-weight: 500;
+}
+
+/* Model selection */
+.model-selection-section {
+    margin: 2rem 0;
+}
+
+.model-selection-title {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.model-selection {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.model-card {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    width: 140px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.model-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--success-color) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.model-card:hover {
+    border-color: var(--accent-color);
+    background-color: #f1f8ff;
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.model-card:hover::before {
+    transform: scaleX(1);
+}
+
+.model-card.selected {
+    border-color: var(--accent-color);
+    background-color: #e6f2ff;
+    box-shadow: var(--card-shadow-colored);
+}
+
+.model-card.selected::before {
+    transform: scaleX(1);
+}
+
+.model-icon {
+    margin-bottom: 0.75rem;
+}
+
+.model-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* Submit button */
+.submit-btn {
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.submit-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 54, 93, 0.3);
+}
+
+.btn-text,
+.btn-loading {
+    transition: var(--transition);
+}
+
+.btn-loading .spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        transform: translate3d(0, 100%, 0);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes floatDots {
+    0%, 100% { 
+        transform: translateX(0) translateY(0);
+        opacity: 0.8;
+    }
+    20% { 
+        transform: translateX(15px) translateY(-20px);
+        opacity: 0.6;
+    }
+    40% { 
+        transform: translateX(-10px) translateY(-15px);
+        opacity: 0.9;
+    }
+    60% { 
+        transform: translateX(-20px) translateY(10px);
+        opacity: 0.5;
+    }
+    80% { 
+        transform: translateX(8px) translateY(18px);
+        opacity: 0.7;
+    }
+}
+
+.floating-element {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive design for upload components */
+@media (max-width: 768px) {
+    .model-selection {
+        gap: 0.5rem;
+    }
+    
+    .model-card {
+        width: 120px;
+        padding: 1rem 0.75rem;
+    }
+    
+    .model-name {
+        font-size: 0.8rem;
+    }
+    
+    .submit-btn {
+        padding: 0.875rem 2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .file-upload-area {
+        padding: 20px;
+    }
+    
+    .upload-title {
+        font-size: 1.1rem;
+    }
+    
+    .upload-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .model-selection {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .model-card {
+        width: 200px;
+    }
+    
+    .browse-btn {
+        padding: 0.625rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}

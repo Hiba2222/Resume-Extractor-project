@@ -3,70 +3,36 @@
 
 {% block title %}CV Extractor - Results{% endblock %}
 
-{% block extra_css %}
-<style>
-    .pdf-frame {
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .model-result {
-        animation: fadeIn 0.3s ease-in;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .card-body::-webkit-scrollbar {
-        width: 8px;
-    }
-    .card-body::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
-    .card-body::-webkit-scrollbar-thumb {
-        background: #0066cc;
-        border-radius: 10px;
-    }
-    .card-body::-webkit-scrollbar-thumb:hover {
-        background: #0056b3;
-    }
-    .badge-model {
-        font-size: 0.85rem;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-    }
-</style>
-{% endblock %}
+{% block extra_css %}{% endblock %}
 
 {% block content %}
 <div class="container-fluid px-4 py-3">
     <!-- Header -->
-    <header class="mb-4">
+    <header class="results-header mb-4">
         <div class="text-center my-4">
-            <div class="mb-3">
-                <i class="fas fa-check-circle fa-3x text-success" style="animation: pulse 2s infinite;"></i>
+            <div class="success-icon mb-3">
+                <i class="fas fa-check-circle fa-3x text-success floating"></i>
             </div>
-            <h1 class="display-4 fw-bold" style="color: #1a365d;">
+            <h1 class="page-title display-4 fw-bold">
                 CV Extraction Results
             </h1>
-            <p class="lead text-muted">View the extracted information alongside the original document</p>
+            <p class="page-subtitle lead text-muted">View the extracted information alongside the original document</p>
         </div>
     </header>
 
     <div class="row">
         <!-- PDF Viewer Column -->
         <div class="col-lg-6 mb-4">
-            <div class="card shadow h-100">
-                <div class="card-header d-flex justify-content-between align-items-center bg-gradient" style="background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);">
-                    <h3 class="mb-0 text-white">
+            <div class="card pdf-viewer-card shadow h-100">
+                <div class="card-header pdf-header d-flex justify-content-between align-items-center">
+                    <h3 class="pdf-title mb-0 text-white">
                         <i class="fas fa-file-pdf me-2"></i> Original CV
                     </h3>
-                    <a href="{{ url_for('upload_page') }}" class="btn btn-sm btn-light">
+                    <a href="{{ url_for('upload_page') }}" class="btn btn-sm btn-light back-btn">
                         <i class="fas fa-arrow-left me-1"></i> Back
                     </a>
                 </div>
-                <div class="card-body p-0">
+                <div class="card-body pdf-body p-0">
                     <iframe 
                         src="{{ pdf_url }}" 
                         class="pdf-frame" 
@@ -81,26 +47,26 @@
 
         <!-- Extraction Results Column -->
         <div class="col-lg-6">
-            <div class="card shadow mb-4">
+            <div class="card results-card shadow mb-4">
                 <!-- Model Selector Header -->
-                <div class="card-header text-white" style="background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);">
+                <div class="card-header results-header text-white">
                     <div class="d-flex justify-content-between align-items-center flex-wrap">
-                        <h3 class="mb-2 mb-md-0">
-                            <i class="fas fa-id-card me-2"></i> Extracted Informations
+                        <h3 class="results-title mb-2 mb-md-0">
+                            <i class="fas fa-id-card me-2"></i> Extracted Information
                         </h3>
                         
                         <!-- Model Selection Buttons -->
                         {% if results|length > 1 %}
-                        <div class="btn-group" role="group" aria-label="Model selection">
+                        <div class="model-selector btn-group" role="group" aria-label="Model selection">
                             {% for model in results %}
                             <input 
                                 type="radio" 
-                                class="btn-check" 
+                                class="btn-check model-radio" 
                                 name="model-selector" 
                                 id="{{ model }}-btn" 
                                 autocomplete="off" 
                                 {% if loop.first %}checked{% endif %}>
-                            <label class="btn btn-outline-light btn-sm" for="{{ model }}-btn">
+                            <label class="btn btn-outline-light btn-sm model-btn" for="{{ model }}-btn">
                                 {{ macros.model_icon(model) }}
                                 {{ model|title }}
                             </label>
@@ -110,10 +76,10 @@
                     </div>
                 </div>
                 
-                <div class="card-body" style="max-height: 800px; overflow-y: auto;">
+                <div class="card-body results-body">
                     {% if not results %}
                         <!-- No Results -->
-                        <div class="alert alert-warning">
+                        <div class="alert alert-warning no-results-alert">
                             <h4 class="alert-heading">
                                 <i class="fas fa-exclamation-triangle me-2"></i> No Results
                             </h4>
@@ -129,33 +95,33 @@
                             
                             <!-- Error Message -->
                             {% if data.error %}
-                            <div class="alert alert-danger mb-4">
+                            <div class="alert alert-danger error-alert mb-4">
                                 <h4 class="alert-heading">
                                     <i class="fas fa-exclamation-circle me-2"></i> Processing Error
                                 </h4>
-                                <p>{{ data.error }}</p>
+                                <p class="error-message">{{ data.error }}</p>
                                 <hr>
-                                <p class="mb-0">Try using a different model by clicking one of the model buttons above.</p>
+                                <p class="error-suggestion mb-0">Try using a different model by clicking one of the model buttons above.</p>
                             </div>
                             {% endif %}
                             
                             <!-- Personal Information -->
-                            <section class="personal-info mb-4">
+                            <section class="personal-info-section mb-4">
                                 <h4 class="section-title border-bottom pb-2 mb-3">
-                                    <i class="fas fa-user me-2 text-primary"></i> Personal Informations
+                                    <i class="fas fa-user me-2 text-primary"></i> Personal Information
                                 </h4>
                                 
                                 {% if data.Name and data.Name != "Processing Error" %}
-                                <div class="mb-3">
-                                    <h3 class="text-primary">{{ data.Name }}</h3>
+                                <div class="person-name mb-3">
+                                    <h3 class="name-display text-primary">{{ data.Name }}</h3>
                                 </div>
                                 {% else %}
-                                <div class="alert alert-warning">
+                                <div class="alert alert-warning name-warning">
                                     <p class="mb-0">No name was extracted from the CV.</p>
                                 </div>
                                 {% endif %}
                                 
-                                <div class="row">
+                                <div class="contact-info row">
                                     <div class="col-md-6">
                                         {{ macros.info_item('envelope', 'Email', data.Email) }}
                                     </div>
@@ -168,54 +134,63 @@
                                 </div>
                             </section>
 
-                            <hr>
+                            <hr class="section-divider">
                             
                             <!-- Education -->
                             {% if data.Education and data.Education|length > 0 %}
-                            <section class="education mb-4">
+                            <section class="education-section mb-4">
                                 <h4 class="section-title border-bottom pb-2 mb-3">
                                     <i class="fas fa-graduation-cap me-2 text-primary"></i> Education
                                 </h4>
-                                {% for edu in data.Education %}
-                                    {{ macros.education_item(edu) }}
-                                {% endfor %}
+                                <div class="education-list">
+                                    {% for edu in data.Education %}
+                                        {{ macros.education_item(edu) }}
+                                    {% endfor %}
+                                </div>
                             </section>
-                            <hr>
+                            <hr class="section-divider">
                             {% endif %}
                             
                             <!-- Experience -->
                             {% if data.Experience and data.Experience|length > 0 %}
-                            <section class="experience mb-4">
+                            <section class="experience-section mb-4">
                                 <h4 class="section-title border-bottom pb-2 mb-3">
                                     <i class="fas fa-briefcase me-2 text-primary"></i> Experience
                                 </h4>
-                                {% for exp in data.Experience %}
-                                    {{ macros.experience_item(exp) }}
-                                {% endfor %}
+                                <div class="experience-list">
+                                    {% for exp in data.Experience %}
+                                        {{ macros.experience_item(exp) }}
+                                    {% endfor %}
+                                </div>
                             </section>
-                            <hr>
+                            <hr class="section-divider">
                             {% endif %}
                             
                             <!-- Skills -->
                             {% if data.Skills and data.Skills|length > 0 and not data.error %}
-                                {{ macros.skills_list(data.Skills, 'Skills', 'tools') }}
-                                <hr>
+                                <section class="skills-section mb-4">
+                                    {{ macros.skills_list(data.Skills, 'Skills', 'tools') }}
+                                </section>
+                                <hr class="section-divider">
                             {% endif %}
 
                             <!-- Languages -->
                             {% if data.Languages and data.Languages|length > 0 %}
-                                {{ macros.skills_list(data.Languages, 'Languages', 'language') }}
-                                <hr>
+                                <section class="languages-section mb-4">
+                                    {{ macros.skills_list(data.Languages, 'Languages', 'language') }}
+                                </section>
+                                <hr class="section-divider">
                             {% endif %}
                             
                             <!-- Action Buttons -->
-                            <div class="text-center mt-4 mb-3">
+                            <div class="action-buttons text-center mt-4 mb-3">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                    <a href="{{ url_for('upload_page') }}" class="btn btn-primary btn-lg px-4">
+                                    <a href="{{ url_for('upload_page') }}" class="btn btn-primary btn-lg px-4 action-btn-primary">
                                         <i class="fas fa-plus-circle me-2"></i> Extract Another CV
                                     </a>
                                     <a href="/download/{{ model }}?session_id={{ request.view_args.session_id }}" 
-                                       class="btn btn-outline-primary btn-lg px-4">
+                                       class="btn btn-outline-primary btn-lg px-4 action-btn-secondary export-btn" 
+                                       data-model="{{ model }}">
                                         <i class="fas fa-download me-2"></i> Download JSON
                                     </a>
                                 </div>
@@ -231,22 +206,5 @@
 {% endblock %}
 
 {% block extra_js %}
-<script>
-    // Model selector functionality
-    document.querySelectorAll('input[name="model-selector"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-            // Hide all results
-            document.querySelectorAll('.model-result').forEach(result => {
-                result.style.display = 'none';
-            });
-            
-            // Show selected model results
-            const selectedModel = this.id.replace('-btn', '');
-            const selectedResult = document.getElementById(selectedModel + '-results');
-            if (selectedResult) {
-                selectedResult.style.display = 'block';
-            }
-        });
-    });
-</script>
+<!-- Model selector functionality is now handled by results.js module -->
 {% endblock %}

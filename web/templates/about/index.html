@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}About - CV Extractor{% endblock %}
+
+{% block extra_css %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <h1 class="hero-title display-3 fw-bold mb-3">About CV Extractor</h1>
+        <p class="hero-subtitle lead fs-4">Revolutionizing resume processing with artificial intelligence</p>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section mb-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="mission-content">
+                    <h2 class="section-title display-4 fw-bold mb-4">Our Mission</h2>
+                    <p class="mission-statement lead mb-4">
+                        To democratize access to advanced AI-powered resume processing, making it easy for 
+                        businesses and individuals to extract structured data from CVs with unprecedented accuracy.
+                    </p>
+                    <p class="mission-description text-muted">
+                        We believe that hiring processes should be efficient, fair, and data-driven. Our platform 
+                        eliminates the tedious manual work of parsing resumes, allowing HR professionals and 
+                        recruiters to focus on what matters most - finding the right talent.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="mission-visual text-center">
+                    <i class="fas fa-bullseye fa-10x text-primary opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology-section mb-5">
+        <header class="section-header text-center mb-5">
+            <h2 class="section-title display-4 fw-bold mb-3">Our Technology</h2>
+            <p class="section-subtitle lead text-muted">Built on cutting-edge AI and machine learning technologies</p>
+        </header>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card technology-card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="tech-icon mb-3">
+                            <i class="fas fa-brain fa-3x tech-icon-purple"></i>
+                        </div>
+                        <h4 class="tech-title fw-bold">Large Language Models</h4>
+                        <p class="tech-description text-muted">
+                            Powered by state-of-the-art LLMs including Llama 3, Mistral, and Microsoft Phi 
+                            for accurate text understanding and extraction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card technology-card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="tech-icon mb-3">
+                            <i class="fas fa-eye fa-3x tech-icon-teal"></i>
+                        </div>
+                        <h4 class="tech-title fw-bold">OCR Technology</h4>
+                        <p class="tech-description text-muted">
+                            Advanced optical character recognition using Google's Gemini AI to handle 
+                            both text-based and scanned PDF documents.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card technology-card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="tech-icon mb-3">
+                            <i class="fas fa-shield-alt fa-3x tech-icon-orange"></i>
+                        </div>
+                        <h4 class="tech-title fw-bold">Security & Privacy</h4>
+                        <p class="tech-description text-muted">
+                            Enterprise-grade security with automatic document deletion and no permanent 
+                            data storage to protect user privacy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section mb-5">
+        <header class="section-header text-center mb-5">
+            <h2 class="section-title display-4 fw-bold mb-3">Our Values</h2>
+            <p class="section-subtitle lead text-muted">The principles that guide our development</p>
+        </header>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="value-item d-flex">
+                    <div class="value-icon flex-shrink-0">
+                        <i class="fas fa-heart fa-2x me-3 value-icon-red"></i>
+                    </div>
+                    <div class="value-content">
+                        <h4 class="value-title fw-bold">User-Centric Design</h4>
+                        <p class="value-description text-muted">
+                            Every feature is designed with the user in mind, ensuring simplicity, 
+                            efficiency, and accessibility for all skill levels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="value-item d-flex">
+                    <div class="value-icon flex-shrink-0">
+                        <i class="fas fa-lock fa-2x me-3 value-icon-green"></i>
+                    </div>
+                    <div class="value-content">
+                        <h4 class="value-title fw-bold">Privacy First</h4>
+                        <p class="value-description text-muted">
+                            We prioritize user privacy and data security, implementing best practices 
+                            to protect sensitive information throughout the process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="value-item d-flex">
+                    <div class="value-icon flex-shrink-0">
+                        <i class="fas fa-rocket fa-2x me-3 value-icon-blue"></i>
+                    </div>
+                    <div class="value-content">
+                        <h4 class="value-title fw-bold">Innovation</h4>
+                        <p class="value-description text-muted">
+                            Continuously exploring new AI technologies and methodologies to improve 
+                            accuracy and expand capabilities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="value-item d-flex">
+                    <div class="value-icon flex-shrink-0">
+                        <i class="fas fa-users fa-2x me-3 value-icon-purple"></i>
+                    </div>
+                    <div class="value-content">
+                        <h4 class="value-title fw-bold">Accessibility</h4>
+                        <p class="value-description text-muted">
+                            Making advanced AI technology accessible to businesses of all sizes, 
+                            from startups to enterprise organizations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta text-center bg-light p-5 rounded-4">
+        <h3 class="cta-title fw-bold mb-3">Have Questions?</h3>
+        <p class="cta-description text-muted mb-4">
+            We'd love to hear from you. Get in touch with any questions, feedback, or suggestions.
+        </p>
+        <div class="cta-actions">
+            <a href="{{ url_for('upload_page') }}" class="btn btn-primary btn-lg me-3 cta-primary">
+                <i class="fas fa-upload me-2"></i> Try CV Extractor
+            </a>
+            <a href="mailto:contact@cvextractor.com" class="btn btn-outline-primary btn-lg cta-secondary">
+                <i class="fas fa-envelope me-2"></i> Contact Us
+            </a>
+        </div>
+    </section>
+</div>
+{% endblock %}

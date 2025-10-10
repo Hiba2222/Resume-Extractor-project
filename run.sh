@@ -1,6 +1,9 @@
 #!/bin/bash
 # =============================================================================
-# CV Extractor - Launch Script
+# CV Extractor - AI-Powered Resume Processing Launcher
+# =============================================================================
+# Professional launch script for the CV Extractor application
+# Supports Docker, Python direct execution, and various utility functions
 # =============================================================================
 
 # Colors for terminal output
@@ -8,12 +11,17 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
+CYAN='\033[0;36m'
+PURPLE='\033[0;35m'
 NC='\033[0m' # No Color
 
-# Print header
-echo -e "${BLUE}================================================${NC}"
-echo -e "${BLUE}           CV EXTRACTOR LAUNCHER               ${NC}"
-echo -e "${BLUE}================================================${NC}"
+# Print enhanced header
+echo -e "${CYAN}================================================================${NC}"
+echo -e "${CYAN}              🤖 CV EXTRACTOR LAUNCHER 🚀                     ${NC}"
+echo -e "${CYAN}          AI-Powered Resume Processing Platform               ${NC}"
+echo -e "${CYAN}================================================================${NC}"
+echo -e "${YELLOW}Features: Multiple AI Models | Modern Web UI | Real-time Processing${NC}"
+echo -e "${BLUE}Models: Llama 3, Mistral, Microsoft Phi${NC}"
 
 # Function to check if Docker is running
 check_docker() {
