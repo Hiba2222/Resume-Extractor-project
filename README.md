@@ -1,7 +1,29 @@
-# CV Extractor 
+# Resume Extractor 
 
 ## 🎯 **Overview**
 Professional AI-powered CV/Resume data extraction tool with modern web interface, modular architecture, and comprehensive testing suite. Built with Flask, featuring multiple AI models (Llama 3, Mistral, Phi) and beautiful, responsive UI.
+
+## 📸 **Screenshots**
+
+### Web Application
+<div align="center">
+
+**Home Page - Modern Landing Interface**
+![Home Page](./screenshots/homepage.png)
+
+**Upload Interface - Drag & Drop CV Upload**
+![Upload Page](./screenshots/uploadpage.png)
+
+**Results Page - Extracted Data with Side-by-Side View**
+![Results Page](./screenshots/results.png)
+</div>
+
+### Evaluation System
+<div align="center">
+
+**Model Performance Evaluation**
+![Evaluation Dashboard](./screenshots/heatmap.png)
+</div>
 
 ## ✨ **Key Features**
 - 🤖 **Multiple AI Models** - Llama 3, Mistral, and Microsoft Phi
