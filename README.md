@@ -261,7 +261,7 @@ The CV Extractor is now a professional-grade application with:
 
 ## 📸 **Screenshots**
 
-### Web Application
+### Web Interface
 <div align="center">
 
 **Home Page - Modern Landing Interface**
