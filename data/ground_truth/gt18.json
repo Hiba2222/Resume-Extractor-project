@@ -1,0 +1,29 @@
+{
+    "Name": "Daniel Taylor",
+    "Email": "daniel.taylor@example.com",
+    "Phone": "+1 555-345-6789",
+    "Address": "174 Magnolia Drive, City, State 02468",
+    "Education": [
+      {
+        "degree": "Master of Business Administration",
+        "institution": "Business School",
+        "year": "2020-2022",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Operations Manager",
+        "company": "Logistics Corporation",
+        "duration": "2022-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Operations Management",
+      "Supply Chain",
+      "Process Improvement",
+      "Team Leadership",
+      "Strategic Planning"
+    ]
+  }

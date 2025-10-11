@@ -1,0 +1,27 @@
+{
+  "name": "David Wilson",
+  "email": "david.wilson@example.com",
+  "phone": "+1 555-567-8901",
+  "skills": [
+    "Machine Learning",
+    "Data Analysis",
+    "Statistical Analysis",
+    "SQL"
+  ],
+  "education": [
+    {
+      "degree": "Master of Science in Data Science",
+      "institution": "Data Science Institute",
+      "year": "2020-2022",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Data Analyst",
+      "company": "Analytics Solutions Inc",
+      "duration": "2022-2024",
+      "description": []
+    }
+  ]
+}

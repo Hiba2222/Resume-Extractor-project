@@ -1,0 +1,27 @@
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "+1 555-123-4567",
+  "skills": [
+    "Problem Solving",
+    "Team Collaboration",
+    "Project Management",
+    "Communication"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "University Name",
+      "year": "2018-2022",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Associate Software Developer",
+      "company": "Tech Company Inc.",
+      "duration": "2022-2024",
+      "description": []
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+    "Name": "Michael Chen",
+    "Email": "michael.chen@example.com",
+    "Phone": "+1 555-345-6789",
+    "Address": "789 Pine Street, City, State 67890",
+    "Education": [
+      {
+        "degree": "Bachelor of Engineering",
+        "institution": "Engineering University",
+        "year": "2017-2021",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Software Engineer",
+        "company": "Tech Innovations Inc",
+        "duration": "2021-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Software Development",
+      "System Design",
+      "Database Management",
+      "Testing",
+      "Agile Methodology"
+    ]
+  }

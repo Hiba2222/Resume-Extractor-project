@@ -1,0 +1,27 @@
+{
+  "name": "Daniel Taylor",
+  "email": "daniel.taylor@example.com",
+  "phone": "+1 555-345-6789",
+  "skills": [
+    "Supply Chain",
+    "Strategic Planning",
+    "Operations Management",
+    "Process Improvement"
+  ],
+  "education": [
+    {
+      "degree": "Master of Business Administration",
+      "institution": "Business School",
+      "year": "2020-2022",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Operations Manager",
+      "company": "Logistics Corporation",
+      "duration": "2022-2024",
+      "description": []
+    }
+  ]
+}

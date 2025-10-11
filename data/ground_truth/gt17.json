@@ -1,0 +1,29 @@
+{
+    "Name": "Michelle Garcia",
+    "Email": "michelle.garcia@example.com",
+    "Phone": "+1 555-234-5678",
+    "Address": "963 Hickory Hill, City, State 91357",
+    "Education": [
+      {
+        "degree": "Bachelor of Science in Chemistry",
+        "institution": "Science University",
+        "year": "2019-2023",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Laboratory Technician",
+        "company": "Research Labs Inc",
+        "duration": "2023-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Laboratory Procedures",
+      "Chemical Analysis",
+      "Data Collection",
+      "Safety Protocols",
+      "Research Methods"
+    ]
+  }

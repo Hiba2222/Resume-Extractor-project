@@ -1,0 +1,29 @@
+{
+    "Name": "Lisa Thompson",
+    "Email": "lisa.thompson@example.com",
+    "Phone": "+1 555-678-9012",
+    "Address": "987 Cedar Court, City, State 35791",
+    "Education": [
+      {
+        "degree": "Bachelor of Science in Finance",
+        "institution": "Finance University",
+        "year": "2019-2023",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Financial Analyst",
+        "company": "Financial Services Group",
+        "duration": "2023-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Financial Analysis",
+      "Excel",
+      "Financial Modeling",
+      "Risk Assessment",
+      "Investment Analysis"
+    ]
+  }

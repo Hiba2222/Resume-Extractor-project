@@ -1,0 +1,29 @@
+{
+    "Name": "Sarah Johnson",
+    "Email": "sarah.johnson@example.com",
+    "Phone": "+1 555-234-5678",
+    "Address": "456 Oak Avenue, City, State 54321",
+    "Education": [
+      {
+        "degree": "Master of Business Administration",
+        "institution": "Business School",
+        "year": "2019-2021",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Marketing Manager",
+        "company": "Marketing Solutions LLC",
+        "duration": "2021-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Marketing Strategy",
+      "Digital Marketing",
+      "Analytics",
+      "Leadership",
+      "Communication"
+    ]
+  }

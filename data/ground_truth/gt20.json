@@ -1,0 +1,29 @@
+{
+    "Name": "Thomas Miller",
+    "Email": "thomas.miller@example.com",
+    "Phone": "+1 555-567-8901",
+    "Address": "396 Redwood Road, City, State 24680",
+    "Education": [
+      {
+        "degree": "Bachelor of Science in Electrical Engineering",
+        "institution": "Engineering University",
+        "year": "2017-2021",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Electrical Engineer",
+        "company": "Power Systems Inc",
+        "duration": "2021-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Circuit Design",
+      "Power Systems",
+      "AutoCAD",
+      "Project Management",
+      "Technical Analysis"
+    ]
+  }

@@ -1,0 +1,29 @@
+{
+    "Name": "Robert Martinez",
+    "Email": "robert.martinez@example.com",
+    "Phone": "+1 555-789-0123",
+    "Address": "147 Birch Boulevard, City, State 46802",
+    "Education": [
+      {
+        "degree": "Master of Science in Mechanical Engineering",
+        "institution": "Engineering Institute",
+        "year": "2018-2020",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Mechanical Engineer",
+        "company": "Manufacturing Solutions Ltd",
+        "duration": "2020-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "CAD Design",
+      "Project Management",
+      "Manufacturing Processes",
+      "Quality Control",
+      "Technical Documentation"
+    ]
+  }

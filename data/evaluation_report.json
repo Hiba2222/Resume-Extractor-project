@@ -1,0 +1,844 @@
+{
+  "summary": {
+    "llama3": {
+      "total_cvs": 22,
+      "successful_extractions": 0,
+      "failed_extractions": 22,
+      "avg_accuracy": 0,
+      "avg_precision": 0,
+      "avg_recall": 0,
+      "avg_f1_score": 0,
+      "avg_extraction_time": 0
+    },
+    "mistral": {
+      "total_cvs": 22,
+      "successful_extractions": 0,
+      "failed_extractions": 22,
+      "avg_accuracy": 0,
+      "avg_precision": 0,
+      "avg_recall": 0,
+      "avg_f1_score": 0,
+      "avg_extraction_time": 0
+    },
+    "phi": {
+      "total_cvs": 22,
+      "successful_extractions": 0,
+      "failed_extractions": 22,
+      "avg_accuracy": 0,
+      "avg_precision": 0,
+      "avg_recall": 0,
+      "avg_f1_score": 0,
+      "avg_extraction_time": 0
+    }
+  },
+  "detailed_results": {
+    "llama3": [
+      {
+        "filename": "cv1",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv1.json"
+        ]
+      },
+      {
+        "filename": "cv10",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv10.json"
+        ]
+      },
+      {
+        "filename": "cv11",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv11.json"
+        ]
+      },
+      {
+        "filename": "cv12",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv12.json"
+        ]
+      },
+      {
+        "filename": "cv13",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv13.json"
+        ]
+      },
+      {
+        "filename": "cv14",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv14.json"
+        ]
+      },
+      {
+        "filename": "cv15",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv15.json"
+        ]
+      },
+      {
+        "filename": "cv16",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv16.json"
+        ]
+      },
+      {
+        "filename": "cv17",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv17.json"
+        ]
+      },
+      {
+        "filename": "cv18",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv18.json"
+        ]
+      },
+      {
+        "filename": "cv19",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv19.json"
+        ]
+      },
+      {
+        "filename": "cv2",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv2.json"
+        ]
+      },
+      {
+        "filename": "cv20",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv20.json"
+        ]
+      },
+      {
+        "filename": "cv21",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv21.json"
+        ]
+      },
+      {
+        "filename": "cv22",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv22.json"
+        ]
+      },
+      {
+        "filename": "cv3",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv3.json"
+        ]
+      },
+      {
+        "filename": "cv4",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv4.json"
+        ]
+      },
+      {
+        "filename": "cv5",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv5.json"
+        ]
+      },
+      {
+        "filename": "cv6",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv6.json"
+        ]
+      },
+      {
+        "filename": "cv7",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv7.json"
+        ]
+      },
+      {
+        "filename": "cv8",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv8.json"
+        ]
+      },
+      {
+        "filename": "cv9",
+        "model": "llama3",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv9.json"
+        ]
+      }
+    ],
+    "mistral": [
+      {
+        "filename": "cv1",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv1.json"
+        ]
+      },
+      {
+        "filename": "cv10",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv10.json"
+        ]
+      },
+      {
+        "filename": "cv11",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv11.json"
+        ]
+      },
+      {
+        "filename": "cv12",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv12.json"
+        ]
+      },
+      {
+        "filename": "cv13",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv13.json"
+        ]
+      },
+      {
+        "filename": "cv14",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv14.json"
+        ]
+      },
+      {
+        "filename": "cv15",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv15.json"
+        ]
+      },
+      {
+        "filename": "cv16",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv16.json"
+        ]
+      },
+      {
+        "filename": "cv17",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv17.json"
+        ]
+      },
+      {
+        "filename": "cv18",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv18.json"
+        ]
+      },
+      {
+        "filename": "cv19",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv19.json"
+        ]
+      },
+      {
+        "filename": "cv2",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv2.json"
+        ]
+      },
+      {
+        "filename": "cv20",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv20.json"
+        ]
+      },
+      {
+        "filename": "cv21",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv21.json"
+        ]
+      },
+      {
+        "filename": "cv22",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv22.json"
+        ]
+      },
+      {
+        "filename": "cv3",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv3.json"
+        ]
+      },
+      {
+        "filename": "cv4",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv4.json"
+        ]
+      },
+      {
+        "filename": "cv5",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv5.json"
+        ]
+      },
+      {
+        "filename": "cv6",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv6.json"
+        ]
+      },
+      {
+        "filename": "cv7",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv7.json"
+        ]
+      },
+      {
+        "filename": "cv8",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv8.json"
+        ]
+      },
+      {
+        "filename": "cv9",
+        "model": "mistral",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv9.json"
+        ]
+      }
+    ],
+    "phi": [
+      {
+        "filename": "cv1",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv1.json"
+        ]
+      },
+      {
+        "filename": "cv10",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv10.json"
+        ]
+      },
+      {
+        "filename": "cv11",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv11.json"
+        ]
+      },
+      {
+        "filename": "cv12",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv12.json"
+        ]
+      },
+      {
+        "filename": "cv13",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv13.json"
+        ]
+      },
+      {
+        "filename": "cv14",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv14.json"
+        ]
+      },
+      {
+        "filename": "cv15",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv15.json"
+        ]
+      },
+      {
+        "filename": "cv16",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv16.json"
+        ]
+      },
+      {
+        "filename": "cv17",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv17.json"
+        ]
+      },
+      {
+        "filename": "cv18",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv18.json"
+        ]
+      },
+      {
+        "filename": "cv19",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv19.json"
+        ]
+      },
+      {
+        "filename": "cv2",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv2.json"
+        ]
+      },
+      {
+        "filename": "cv20",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv20.json"
+        ]
+      },
+      {
+        "filename": "cv21",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv21.json"
+        ]
+      },
+      {
+        "filename": "cv22",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv22.json"
+        ]
+      },
+      {
+        "filename": "cv3",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv3.json"
+        ]
+      },
+      {
+        "filename": "cv4",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv4.json"
+        ]
+      },
+      {
+        "filename": "cv5",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv5.json"
+        ]
+      },
+      {
+        "filename": "cv6",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv6.json"
+        ]
+      },
+      {
+        "filename": "cv7",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv7.json"
+        ]
+      },
+      {
+        "filename": "cv8",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv8.json"
+        ]
+      },
+      {
+        "filename": "cv9",
+        "model": "phi",
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "extraction_time": 0.0,
+        "errors": [
+          "Ground truth file not found: data\\ground_truth\\cv9.json"
+        ]
+      }
+    ]
+  },
+  "model_comparison": {
+    "best_accuracy": {
+      "model": "llama3",
+      "score": 0
+    },
+    "fastest": {
+      "model": "llama3",
+      "time": 0
+    }
+  }
+}

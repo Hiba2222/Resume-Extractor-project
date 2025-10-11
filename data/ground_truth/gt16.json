@@ -1,0 +1,29 @@
+{
+    "Name": "Kevin Anderson",
+    "Email": "kevin.anderson@example.com",
+    "Phone": "+1 555-123-4567",
+    "Address": "852 Ash Avenue, City, State 80246",
+    "Education": [
+      {
+        "degree": "Bachelor of Science in Information Technology",
+        "institution": "Tech University",
+        "year": "2018-2022",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "IT Support Specialist",
+        "company": "Tech Support Solutions",
+        "duration": "2022-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Network Administration",
+      "Hardware Troubleshooting",
+      "Software Installation",
+      "Customer Service",
+      "System Maintenance"
+    ]
+  }

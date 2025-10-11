@@ -1,0 +1,27 @@
+{
+  "name": "Nicole Johnson",
+  "email": "nicole.johnson@example.com",
+  "phone": "+1 555-678-9012",
+  "skills": [
+    "Data Analysis",
+    "Environmental Assessment",
+    "Report Writing",
+    "Sustainability Planning"
+  ],
+  "education": [
+    {
+      "degree": "Master of Science in Environmental Science",
+      "institution": "Environmental Studies Institute",
+      "year": "2019-2021",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Environmental Consultant",
+      "company": "Green Solutions LLC",
+      "duration": "2021-2024",
+      "description": []
+    }
+  ]
+}

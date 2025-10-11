@@ -34,49 +34,65 @@ class CVInfoExtractor:
             'cognitivecomputations/dolphin3.0-mistral-24b:free'
         ]
         
-        # Extraction prompt template
-        self.extraction_prompt = """You are a CV information extraction expert. Extract structured information from this text and format it as valid JSON.
+        # Optimized extraction prompt template for maximum accuracy
+        self.extraction_prompt = """You are a professional CV data extraction specialist. Extract information from this resume with 100% accuracy and completeness.
 
-            IMPORTANT: Your response MUST be ONLY a valid JSON object with no additional text, explanation, or markdown formatting.
+CRITICAL EXTRACTION RULES:
+1. Extract EXACTLY what is written - do not infer, guess, or paraphrase
+2. Maintain original spelling, capitalization, and formatting
+3. Include ALL skills mentioned anywhere in the document
+4. Capture ALL education entries (degrees, certifications, courses)
+5. Record ALL work experience (jobs, internships, projects)
+6. Find contact information from header/footer sections
+7. Return ONLY valid JSON - no explanations, markdown, or code blocks
 
-            Extract these fields:
-            - personal_info: Object with name, email, phone, address
-            - education: Array of education entries
-            - experience: Array of work experience entries  
-            - skills: Array of skills
-            - languages: Array of languages
+REQUIRED JSON STRUCTURE:
+{{
+"personal_info": {{
+    "name": "Complete full name as written on CV",
+    "email": "Exact email address with correct domain", 
+    "phone": "Complete phone number with all formatting",
+    "address": "Full address if mentioned anywhere"
+}},
+"education": [
+    {{
+    "degree": "Complete degree/qualification name exactly as written",
+    "institution": "Full institution name without abbreviations",
+    "year": "Exact graduation year or date range",
+    "description": "Additional details like GPA, honors, relevant coursework"
+    }}
+],
+"experience": [
+    {{
+    "job_title": "Complete job title/position exactly as written",
+    "company": "Full company/organization name", 
+    "duration": "Exact employment period (start-end dates)",
+    "description": "Key responsibilities, achievements, and impact"
+    }}
+],
+"skills": [
+    "List every single skill mentioned",
+    "Include programming languages",
+    "Include software and tools",
+    "Include technical skills",
+    "Include soft skills",
+    "Include certifications",
+    "Preserve exact wording and spelling"
+],
+"languages": ["Every language mentioned with proficiency level if stated"]
+}}
 
-            JSON Structure:
-            {{
-            "personal_info": {{
-                "name": "Person's full name",
-                "email": "email@example.com", 
-                "phone": "+1 234 567 8900",
-                "address": "123 Example Street, Example City"
-            }},
-            "education": [
-                {{
-                "degree": "Degree name",
-                "institution": "Institution name",
-                "year": "Time period",
-                "description": "Additional details"
-                }}
-            ],
-            "experience": [
-                {{
-                "job_title": "Position title",
-                "company": "Company name", 
-                "duration": "Time period",
-                "description": "Key responsibilities and achievements"
-                }}
-            ],
-            "skills": ["Skill 1", "Skill 2", "Skill 3"],
-            "languages": ["Language 1", "Language 2"]
-            }}
+EXTRACTION PRIORITY:
+- Personal info: Check header, footer, contact sections
+- Skills: Scan entire document including experience descriptions
+- Education: Look for degrees, certifications, training, courses
+- Experience: Include all work history, internships, projects
+- Languages: Check skills section and personal details
 
-            CV Text:
-            {cv_text}
-        """
+ACCURACY IS CRITICAL. EXTRACT EVERYTHING. RETURN ONLY JSON.
+
+CV Text:
+{{cv_text}}"""
     
     def check_ollama_available(self):
         """Verify Ollama API is running"""

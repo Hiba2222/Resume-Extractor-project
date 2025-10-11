@@ -1,0 +1,29 @@
+{
+    "Name": "Emily Rodriguez",
+    "Email": "emily.rodriguez@example.com",
+    "Phone": "+1 555-456-7890",
+    "Address": "321 Elm Drive, City, State 13579",
+    "Education": [
+      {
+        "degree": "Bachelor of Arts in Psychology",
+        "institution": "Liberal Arts College",
+        "year": "2018-2022",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "HR Specialist",
+        "company": "Human Resources Corp",
+        "duration": "2022-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Human Resources",
+      "Employee Relations",
+      "Recruitment",
+      "Training",
+      "Conflict Resolution"
+    ]
+  }

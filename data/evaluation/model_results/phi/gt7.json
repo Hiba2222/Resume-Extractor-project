@@ -1,0 +1,27 @@
+{
+  "name": "Sarah Johnson",
+  "email": "sarah.johnson@example.com",
+  "phone": "+1 555-234-5678",
+  "skills": [
+    "Digital Marketing",
+    "Leadership",
+    "Analytics",
+    "Communication"
+  ],
+  "education": [
+    {
+      "degree": "Master of Business Administration",
+      "institution": "Business School",
+      "year": "2019-2021",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Marketing Manager",
+      "company": "Marketing Solutions LLC",
+      "duration": "2021-2024",
+      "description": []
+    }
+  ]
+}

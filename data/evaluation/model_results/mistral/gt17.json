@@ -1,0 +1,27 @@
+{
+  "name": "Michelle Garcia",
+  "email": "michelle.garcia@example.com",
+  "phone": "+1 555-234-5678",
+  "skills": [
+    "Laboratory Procedures",
+    "Data Collection",
+    "Safety Protocols",
+    "Chemical Analysis"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Chemistry",
+      "institution": "Science University",
+      "year": "2019-2023",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Laboratory Technician",
+      "company": "Research Labs Inc",
+      "duration": "2023-2024",
+      "description": []
+    }
+  ]
+}

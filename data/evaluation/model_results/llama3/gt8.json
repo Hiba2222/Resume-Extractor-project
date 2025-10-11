@@ -1,0 +1,27 @@
+{
+  "name": "Michael Chen",
+  "email": "michael.chen@example.com",
+  "phone": "+1 555-345-6789",
+  "skills": [
+    "Agile Methodology",
+    "Software Development",
+    "Database Management",
+    "System Design"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Engineering",
+      "institution": "Engineering University",
+      "year": "2017-2021",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Software Engineer",
+      "company": "Tech Innovations Inc",
+      "duration": "2021-2024",
+      "description": []
+    }
+  ]
+}

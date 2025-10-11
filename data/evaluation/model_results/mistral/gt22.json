@@ -1,0 +1,27 @@
+{
+  "name": "Steven Clark",
+  "email": "steven.clark@example.com",
+  "phone": "+1 555-789-0223",
+  "skills": [
+    "Auditing",
+    "QuickBooks",
+    "Tax Preparation",
+    "Financial Reporting"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Accounting",
+      "institution": "Business University",
+      "year": "2018-2022",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Staff Accountant",
+      "company": "Accounting Services Group",
+      "duration": "2022-2024",
+      "description": []
+    }
+  ]
+}

@@ -259,4 +259,27 @@ The CV Extractor is now a professional-grade application with:
 - **Robust Testing** - Comprehensive test coverage
 - **Production Ready** - Docker support and deployment considerations
 
-Start exploring: `python web/app.py` → http://localhost:5000
+
+## 📸 **Screenshots**
+
+### Web Application
+<div align="center">
+
+**Home Page - Modern Landing Interface**
+![Home Page](screenshots/homepage.png)
+
+**Upload Interface - Drag & Drop CV Upload**
+![Upload Page](screenshots/uploadpage.png)
+
+**Results Page - Extracted Data with Side-by-Side View**
+![Results Page](screenshots/results.png)
+
+</div>
+
+### Evaluation System
+<div align="center">
+
+**Model Performance Evaluation**
+![Evaluation Dashboard](screenshots/heatmap.png)
+
+</div>

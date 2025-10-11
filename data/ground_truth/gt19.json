@@ -1,0 +1,29 @@
+{
+    "Name": "Rachel White",
+    "Email": "rachel.white@example.com",
+    "Phone": "+1 555-456-7890",
+    "Address": "285 Dogwood Lane, City, State 13579",
+    "Education": [
+      {
+        "degree": "Bachelor of Arts in Communications",
+        "institution": "Communications College",
+        "year": "2018-2022",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Public Relations Specialist",
+        "company": "PR Agency Group",
+        "duration": "2022-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Public Relations",
+      "Media Relations",
+      "Content Creation",
+      "Social Media Management",
+      "Event Planning"
+    ]
+  }

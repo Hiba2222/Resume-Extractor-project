@@ -1,0 +1,29 @@
+{
+    "Name": "Jennifer Lee",
+    "Email": "jennifer.lee@example.com",
+    "Phone": "+1 555-890-1234",
+    "Address": "258 Willow Way, City, State 57913",
+    "Education": [
+      {
+        "degree": "Bachelor of Science in Nursing",
+        "institution": "Medical College",
+        "year": "2020-2024",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Registered Nurse",
+        "company": "City General Hospital",
+        "duration": "2024-Present",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Patient Care",
+      "Medical Procedures",
+      "Emergency Response",
+      "Documentation",
+      "Team Collaboration"
+    ]
+  }

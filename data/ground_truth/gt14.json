@@ -1,0 +1,29 @@
+{
+    "Name": "Christopher Brown",
+    "Email": "christopher.brown@example.com",
+    "Phone": "+1 555-901-2345",
+    "Address": "369 Spruce Street, City, State 68024",
+    "Education": [
+      {
+        "degree": "Bachelor of Arts in Graphic Design",
+        "institution": "Art Institute",
+        "year": "2019-2023",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Graphic Designer",
+        "company": "Creative Agency Inc",
+        "duration": "2023-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Adobe Creative Suite",
+      "Typography",
+      "Brand Design",
+      "Web Design",
+      "Creative Problem Solving"
+    ]
+  }

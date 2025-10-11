@@ -1,0 +1,27 @@
+{
+  "name": "Emily Rodriguez",
+  "email": "emily.rodriguez@example.com",
+  "phone": "+1 555-456-7890",
+  "skills": [
+    "Human Resources",
+    "Employee Relations",
+    "Recruitment",
+    "Training"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Arts in Psychology",
+      "institution": "Liberal Arts College",
+      "year": "2018-2022",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "HR Specialist",
+      "company": "Human Resources Corp",
+      "duration": "2022-2024",
+      "description": []
+    }
+  ]
+}

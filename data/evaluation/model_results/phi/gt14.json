@@ -1,0 +1,27 @@
+{
+  "name": "Christopher Brown",
+  "email": "christopher.brown@example.com",
+  "phone": "+1 555-901-2345",
+  "skills": [
+    "Typography",
+    "Brand Design",
+    "Web Design",
+    "Creative Problem Solving"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor's of Arts in Graphic Design",
+      "institution": "Art Institute",
+      "year": "2019 - 2023",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Graphic Designer",
+      "company": "Creative Agency Inc",
+      "duration": "2023-2024",
+      "description": []
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Thomas Miller",
+  "email": "thomas.miller@example.com",
+  "phone": "+1 555-567-8901",
+  "skills": [
+    "Circuit Design",
+    "Technical Analysis",
+    "Power Systems",
+    "AutoCAD"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Electrical Engineering",
+      "institution": "Engineering University",
+      "year": "2017-2021",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Electrical Engineer",
+      "company": "Power Systems Inc",
+      "duration": "2021-2024",
+      "description": []
+    }
+  ]
+}

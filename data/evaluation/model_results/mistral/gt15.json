@@ -1,0 +1,27 @@
+{
+  "name": "Amanda Davis",
+  "email": "amanda.davis@example.com",
+  "phone": "+1 555-012-3456",
+  "skills": [
+    "Parent Communication",
+    "Educational Technology",
+    "Curriculum Development",
+    "Classroom Management"
+  ],
+  "education": [
+    {
+      "degree": "Master of Education",
+      "institution": "Education University",
+      "year": "2020-2022",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Elementary School Teacher",
+      "company": "Riverside Elementary School",
+      "duration": "2022-2024",
+      "description": []
+    }
+  ]
+}

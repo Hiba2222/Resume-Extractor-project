@@ -1,0 +1,27 @@
+{
+  "name": "Rachel White",
+  "email": "rachel.white@example.com",
+  "phone": "+1 555-456-7890",
+  "skills": [
+    "Public Relations",
+    "Social Media Management",
+    "Media Relations",
+    "Content Creation"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor's of Arts in Communications",
+      "institution": "Communications College",
+      "year": "2018 - 2022",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Public Relations Specialist",
+      "company": "PR Agency Group",
+      "duration": "2022-2024",
+      "description": []
+    }
+  ]
+}

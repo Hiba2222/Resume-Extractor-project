@@ -1,0 +1,27 @@
+{
+  "name": "Robert Martinez",
+  "email": "robert.martinez@example.com",
+  "phone": "+1 555-789-0123",
+  "skills": [
+    "Manufacturing Processes",
+    "Project Management",
+    "Technical Documentation",
+    "Quality Control"
+  ],
+  "education": [
+    {
+      "degree": "Master of Science in Mechanical Engineering",
+      "institution": "Engineering Institute",
+      "year": "2018-2020",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Mechanical Engineer",
+      "company": "Manufacturing Solutions Ltd",
+      "duration": "2020-2024",
+      "description": []
+    }
+  ]
+}

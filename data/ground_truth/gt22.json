@@ -1,0 +1,29 @@
+{
+    "Name": "Steven Clark",
+    "Email": "steven.clark@example.com",
+    "Phone": "+1 555-789-0123",
+    "Address": "618 Chestnut Circle, City, State 46802",
+    "Education": [
+      {
+        "degree": "Bachelor of Science in Accounting",
+        "institution": "Business University",
+        "year": "2018-2022",
+        "description": []
+      }
+    ],
+    "Experience": [
+      {
+        "job_title": "Staff Accountant",
+        "company": "Accounting Services Group",
+        "duration": "2022-2024",
+        "description": []
+      }
+    ],
+    "Skills": [
+      "Financial Reporting",
+      "Tax Preparation",
+      "Auditing",
+      "QuickBooks",
+      "Attention to Detail"
+    ]
+  }

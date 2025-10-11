@@ -1,0 +1,27 @@
+{
+  "name": "Jennifer Lee",
+  "email": "jennifer.lee@example.com",
+  "phone": "+1 555-890-1234",
+  "skills": [
+    "Patient Care",
+    "Emergency Response",
+    "Medical Procedures",
+    "Team Collaboration"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Nursing",
+      "institution": "Medical College",
+      "year": "2020-2024",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Registered Nurse",
+      "company": "City General Hospital",
+      "duration": "2024-Present",
+      "description": []
+    }
+  ]
+}

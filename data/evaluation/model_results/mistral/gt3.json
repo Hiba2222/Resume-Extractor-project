@@ -1,0 +1,35 @@
+{
+  "name": "Sarah Clark",
+  "email": "sarah-clark@email.com",
+  "phone": "+1 234-567-8900",
+  "skills": [
+    "Research",
+    "Management",
+    "BLAST",
+    "SPSS",
+    "Leadership",
+    "MATLAB"
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Biotechnology",
+      "institution": "University of Maryland",
+      "year": "2010 - 2013",
+      "description": []
+    },
+    {
+      "degree": "Certified Biomedical Auditor (CBA)",
+      "institution": "American Society for Quality (ASQ)",
+      "year": "2013-2016",
+      "description": []
+    }
+  ],
+  "experience": [
+    {
+      "job_title": "Biotechnology Research Team Leader",
+      "company": "Biology Group Ltd, New York",
+      "duration": "2016-2018",
+      "description": []
+    }
+  ]
+}
