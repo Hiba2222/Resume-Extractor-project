@@ -9,13 +9,13 @@ Professional AI-powered CV/Resume data extraction tool with modern web interface
 <div align="center">
 
 **Home Page - Modern Landing Interface**
-![Home Page](./screenshots/homepage.png)
+![Home Page](/screenshots/homepage.png)
 
 **Upload Interface - Drag & Drop CV Upload**
-![Upload Page](./screenshots/uploadpage.png)
+![Upload Page](/screenshots/uploadpage.png)
 
 **Results Page - Extracted Data with Side-by-Side View**
-![Results Page](./screenshots/results.png)
+![Results Page](/screenshots/results.png)
 </div>
 
 ### Evaluation System
